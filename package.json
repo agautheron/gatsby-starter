@@ -24,6 +24,9 @@
     "codeclimate": "codeclimate-test-reporter < coverage/lcov.info"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "@types/lodash": "^4.14.116",
     "@types/reach__router": "^1.0.1",
     "@types/react": "^16.0.20",
@@ -36,6 +39,7 @@
     "codeclimate-test-reporter": "^0.4.1",
     "disqus-react": "^1.0.5",
     "gatsby": "next",
+    "gatsby-background-image": "^0.8.15",
     "gatsby-link": "next",
     "gatsby-plugin-glamor": "next",
     "gatsby-plugin-google-analytics": "next",
@@ -57,10 +61,12 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-helmet": "5.0.3",
+    "react-icons": "^3.7.0",
     "react-redux": "^5.0.7",
     "redux-devtools-extension": "^2.13.2",
-    "semantic-ui-react": "^0.82.3",
+    "semantic-ui-react": "0.88.1",
     "slash": "1.0.0",
+    "styled-components": "^4.4.0",
     "ts-loader": "^2.3.7",
     "typescript": "^2.8.0"
   },
