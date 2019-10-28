@@ -89,7 +89,7 @@ const IndexPage = (props: LayoutProps) =>
               Adresse
             </Header>
             <p>
-              Le cocktail a lieu au Moulin de Bully qui est situé au <a href="https://goo.gl/maps/AGZs2AhsXUiqXQCZ9">29 Route du Pont du Coudray, 14320 Feuguerolles-Bully</a>
+              La cérémonie de mariage aura lieu dans l'église Saint-Gilles <a href="https://goo.gl/maps/4iYhDanTvGfTPiPA8">Place de la Reine Mathilde, 14000 Caen</a>
                 </p>
           </Grid.Column>
           <Grid.Column>

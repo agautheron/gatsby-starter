@@ -1,15 +1,15 @@
 import * as React from "react";
 import { Header, Segment, Icon } from "semantic-ui-react";
 
-export default () => {
+export default (prop) => {
   return (
     <Segment vertical>
       <Header as="h2">
-        <Icon name="newspaper" />
+        <Icon name={prop.icon} />
         <Header.Content>
-          Blog
+          {prop.title}
             <Header.Subheader>
-            All about this starter kit
+            {prop.header}
             </Header.Subheader>
         </Header.Content>
       </Header>

@@ -66,7 +66,7 @@ const BlogPage = (props: BlogProps) => {
             fluid
             image={cover}
             header={frontmatter.title}
-            extra={extra}
+          
             description={description}
           />
         );
@@ -77,7 +77,7 @@ const BlogPage = (props: BlogProps) => {
   return (
     <Container>
       {/* Title */}
-      <BlogTitle />
+      <BlogTitle icon="home" title="Où Loger ?" header=""/>
 
       {/* Content */}
       <Segment vertical>
@@ -114,7 +114,7 @@ query PageBlog2 {
     sort: { order: DESC, fields: [frontmatter___updatedDate] },
     filter: {
       frontmatter: { draft: { ne: true } },
-      fileAbsolutePath: { regex: "/blog/" }
+      fileAbsolutePath: { regex: "/logement/" }
     },
     limit: 10
   ) {
