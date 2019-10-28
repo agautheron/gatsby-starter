@@ -98,10 +98,8 @@ const IndexPage = (props: LayoutProps) =>
               Horaires
             </Header>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Voluptas eaque at quae cupiditate aspernatur quibusdam!
-                  Distinctio quod non, harum dolorum earum molestias,
-                  beatae expedita aliquam dolorem asperiores nemo amet quaerat.
+              Le cocktail se tiendra de 17h à 19h30.
+              Vous y êtes chaleureusement conviés pour un temps convivial.
                 </p>
           </Grid.Column>
           <Grid.Column>
@@ -110,10 +108,7 @@ const IndexPage = (props: LayoutProps) =>
               Parking
             </Header>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Voluptas eaque at quae cupiditate aspernatur quibusdam!
-                  Distinctio quod non, harum dolorum earum molestias,
-                  beatae expedita aliquam dolorem asperiores nemo amet quaerat.
+              Vous pourrez vous garer dans l'enceinte du Moulin de Bully. Merci de respecter les indications de parking qui vous seront données.
                 </p>
           </Grid.Column>
         </Grid.Row>

@@ -1,11 +1,15 @@
 const fs = require('fs');
 const {inputRequired} = require('./utils');
-
 const authors = JSON.parse(fs.readFileSync('./data/author.json'));
-
+const categories =  [{id:'balades'},{id:'logement'},{id:'visites'}]
 module.exports = plop => {
   plop.setGenerator('blog post', {
     prompts: [
+      { type:'list',
+        name: 'category',
+        message: 'The category of blog post ?',
+        choices: categories.map(categorie => ({name: categorie.id, value: categorie.id}))
+      },
       {
         type: 'input',
         name: 'title',
@@ -41,7 +45,7 @@ module.exports = plop => {
       return [
         {
           type: 'add',
-          path: '../data/blog/{{createdDate}}--{{dashCase title}}/index.md',
+          path: '../data/{{category}}/{{createdDate}}--{{dashCase title}}/index.md',
           templateFile: 'templates/blog-post-md.template'
         }
       ];
