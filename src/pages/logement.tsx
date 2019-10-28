@@ -7,15 +7,16 @@ import BlogTitle from "../components/BlogTitle";
 import TagsCard from "../components/TagsCard/TagsCard";
 import BlogPagination from "../components/BlogPagination/BlogPagination";
 import { get } from "lodash";
-import {withLayout, LayoutProps} from "../components/Layout";
+import {withLayout, LayoutProps, menuItems, subMenuItems} from "../components/Layout";
 import { MarkdownRemark } from "../graphql-types";
+import { isNull } from "util";
 
 interface BlogProps extends LayoutProps {
   data: {
     tags: MarkdownRemarkConnection;
     posts: MarkdownRemarkConnection;
   };
-  pageContext: {
+  pathContext: {
     tag?: string; // only set into `templates/tags-pages.tsx`
   };
 }
@@ -25,11 +26,15 @@ const BlogPage = (props: BlogProps) => {
   const posts = props.data.posts.edges;
   const { pathname } = props.location;
   const pageCount = Math.ceil(props.data.posts.totalCount / 10);
-
+  const root = menuItems.find(e=>e.path == pathname);
+  if(isNull(root)){
+    const root = subMenuItems.find(function(element) {
+      return pathname.includes(element.path)});
+  }
   // TODO export posts in a proper component
   const Posts = (
-    <Container>
-      {posts.map(({ node }: {node: MarkdownRemark}) => {
+ /*   <Container> */
+      posts.map(({ node }: {node: MarkdownRemark}) => {
         const { frontmatter, timeToRead, fields: { slug }, excerpt } = node;
         const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
         const cover = get(frontmatter, "image.children.0.fixed", {});
@@ -57,40 +62,55 @@ const BlogPage = (props: BlogProps) => {
           <Card.Description>
             {excerpt}
             <br />
-            <Link to={slug}>Read more…</Link>
+            <Link to={slug}>En savoir plus…</Link>
           </Card.Description>
         );
 
         return (
-          <Card key={slug}
+<div key={slug} style={{ paddingBottom: "1em" }}>
+          <Card as={Link}
+          to={slug}
+          image={cover}
+          header={frontmatter.title} /></div>
+
+                   /*}   <Card key={slug}
             fluid
             image={cover}
             header={frontmatter.title}
           
             description={description}
           />
+        */
         );
-      })}
-    </Container>
+      })
+  /* </Container>*/
   );
 
   return (
     <Container>
       {/* Title */}
-      <BlogTitle icon="home" title="Où Loger ?" header=""/>
-
+      <BlogTitle icon={root.icon} title={root.name} header=""/>
+      <Segment vertical>
+        <br/>
+        <h3>Amis Caennais, si vous avez des lits disponibles à prêter, faites-nous signe !</h3>
+        <br/>
+        <p>En attendant, vous trouverez ci-dessous quelques lieux à proximité du lieu du mariage. </p>
+        <br/>
+        </Segment>
       {/* Content */}
       <Segment vertical>
-        <Grid padded style={{ justifyContent: "space-around" }}>
-          <div style={{ maxWidth: 600 }}>
+       {/*} <Grid padded style={{ justifyContent: "space-around" }}> 
+          <div style={{ maxWidth: 600 }}> */}
+          
+        <Grid padded centered>
             {Posts}
-            <Segment vertical textAlign="center">
+           {/*  <Segment vertical textAlign="center">
               <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
             </Segment>
-          </div>
-		  {/*   <div>
-            <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
-</div> */}
+         </div>
+		     <div>
+            <TagsCard Link={Link} tags={tags} tag={props.pathContext.tag} />
+</div>*/}
         </Grid>
       </Segment>
     </Container>
@@ -100,7 +120,7 @@ const BlogPage = (props: BlogProps) => {
 export default withLayout(BlogPage);
 
 export const pageQuery = graphql`
-query PageBlog2 {
+query PageLogement {
   # Get tags
   tags: allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}}}) {
     group(field: frontmatter___tags) {
@@ -127,12 +147,13 @@ query PageBlog2 {
           slug
         }
         frontmatter {
+          category
           title
           updatedDate(formatString: "DD MMMM, YYYY")
           image {
           	children {
               ... on ImageSharp {
-                fixed(width: 700, height: 100) {
+                fixed(width: 300, height: 300) {
                   src
                   srcSet
                 }

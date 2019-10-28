@@ -1,5 +1,5 @@
 import * as React from "react";
-import Blog from "../pages/balades";
+import Blog from "../pages/blog";
 import { graphql } from "gatsby";
 
 export default Blog;
@@ -21,7 +21,7 @@ query TemplateBlogPage($skip: Int) {
       frontmatter: {
         draft: { ne: true }
       },
-      fileAbsolutePath: { regex: "/blog/" }
+    #  fileAbsolutePath: { regex: "/blog/" }
     }
     limit: 10,
     skip: $skip

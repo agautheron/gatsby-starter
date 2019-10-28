@@ -1,5 +1,6 @@
 ---
 title: {{title}}
+category: {{category}}
 createdDate: "{{createdDate}}"
 updatedDate: "{{createdDate}}"
 author: {{author}}{{tags}}
@@ -7,9 +8,11 @@ image: welcoming.png
 draft: {{draft}}
 ---
 
-My awesome article
+Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+Porro laudantium ad, quae, perspiciatis ipsa distinctio.
 
-## TODO
+---
 
--   [ ] Replace image
--   [ ] Write an awesome article
+ ## **[Réserver](MYLINKHERE)**
+
+ ---

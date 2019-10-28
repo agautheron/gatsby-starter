@@ -34,6 +34,7 @@ export default (props: HtmlProps) => {
         {head.meta.toComponent()}
         {head.link.toComponent()}
         {verification}
+        <script src="https://kit.fontawesome.com/677c6a4abf.js" crossorigin="anonymous"></script>
       </head>
       <body>
         <div

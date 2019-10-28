@@ -24,7 +24,7 @@ const BlogPostPage = (props: BlogPostProps) => {
     .map((tag) => <Label key={tag}><Link to={`/blog/tags/${tag}/`}>{tag}</Link></Label>);
 
   const recents = props.data.recents.edges
-    .map(({ node }) => {
+      .map(({ node }) => {
       const recentAvatar = node.frontmatter.author.avatar.children[0] as ImageSharp;
       const recentCover = get(node, "frontmatter.image.children.0.fixed", {});
       const extra = (
@@ -45,17 +45,18 @@ const BlogPostPage = (props: BlogPostProps) => {
           </Comment>
         </Comment.Group>
       );
-
+      if (props.data.post.frontmatter.category == node.frontmatter.category){
       return (
         <div key={node.fields.slug} style={{ paddingBottom: "1em" }}>
           <Card as={Link}
             to={node.fields.slug}
             image={recentCover}
             header={node.frontmatter.title}
-            extra={extra}
+           // extra={extra}
           />
         </div>
       );
+      }
     });
 
   const cover = get(frontmatter, "image.children.0.fixed", {} );
@@ -63,7 +64,7 @@ const BlogPostPage = (props: BlogPostProps) => {
     <Container>
       <BlogTitle />
       <Segment vertical style={{ border: "none" }}>
-        <Item.Group>
+      {/*  <Item.Group>
           <Item>
             <Item.Image size="tiny"
               src={avatar.fixed.src}
@@ -76,8 +77,12 @@ const BlogPostPage = (props: BlogPostProps) => {
               <Item.Extra>{frontmatter.updatedDate} - {timeToRead} min read</Item.Extra>
             </Item.Content>
           </Item>
-        </Item.Group>
-        <Header as="h1">{frontmatter.title}</Header>
+        </Item.Group> */}
+        <Header as="h1">{frontmatter.title}
+        <Header.Subheader>
+        {frontmatter.header}
+        </Header.Subheader>
+        </Header>
       </Segment>
       <Image
         {...cover}
@@ -92,13 +97,13 @@ const BlogPostPage = (props: BlogPostProps) => {
       <Segment vertical>
         {tags}
       </Segment>
-      {props.data.site
+   {/*}   {props.data.site
         && props.data.site.siteMetadata
         && props.data.site.siteMetadata.disqus
         && <Segment vertical>
             <DiscussionEmbed shortname={props.data.site.siteMetadata.disqus} config={{}}/>
         </Segment>
-      }
+      } */}
       <Segment vertical>
         <Grid padded centered>
           {recents}
@@ -126,6 +131,7 @@ export const pageQuery = graphql`
     }
     frontmatter {
       tags
+      category
       author {
         id
         bio
@@ -142,6 +148,7 @@ export const pageQuery = graphql`
         }
       }
       title
+      header
       updatedDate(formatString: "MMM D, YYYY")
       image {
         children {
@@ -159,10 +166,10 @@ export const pageQuery = graphql`
     filter: {
       fields: {slug: {ne: $slug}}
       frontmatter: {draft: {ne: true}},
-      fileAbsolutePath: {regex: "/blog/"},
+      # fileAbsolutePath: {regex: "/blog/"},
     },
     sort: {order: DESC, fields: [frontmatter___updatedDate]},
-    limit: 4
+ #   limit: 4
   ) {
     edges {
       node {
@@ -171,6 +178,8 @@ export const pageQuery = graphql`
         }
         timeToRead
         frontmatter {
+          category
+          header
           title
           image {
             children {

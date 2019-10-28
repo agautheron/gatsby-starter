@@ -2819,6 +2819,8 @@ export interface fieldOwners_2 {
 
 export interface frontmatter_2 {
   title: string | null;
+  category : string | null;
+  header: string | null;
   createdDate: Date | null;
   updatedDate: Date | null;
   author: AuthorJson | null;
@@ -3558,6 +3560,8 @@ export interface markdownRemarkConnectionInternalFieldOwnersSlugQueryString_2 {
 
 export interface markdownRemarkConnectionFrontmatterInputObject_2 {
   title: markdownRemarkConnectionFrontmatterTitleQueryString_2 | null;
+  category: markdownRemarkConnectionFrontmatterCategoryQueryString_2 | null;
+  header: markdownRemarkConnectionFrontmatterHeaderQueryString_2 | null;
   createdDate: markdownRemarkConnectionFrontmatterCreatedDateQueryString_2 | null;
   updatedDate: markdownRemarkConnectionFrontmatterUpdatedDateQueryString_2 | null;
   author: markdownRemarkConnectionFrontmatterAuthorQueryString_2 | null;
@@ -3575,6 +3579,20 @@ export interface markdownRemarkConnectionFrontmatterTitleQueryString_2 {
   in: Array<string> | null;
 }
 
+export interface markdownRemarkConnectionFrontmatterCategoryQueryString_2 {
+  eq: string | null;
+  ne: string | null;
+  regex: string | null;
+  glob: string | null;
+  in: Array<string> | null;
+}
+export interface markdownRemarkConnectionFrontmatterHeaderQueryString_2 {
+  eq: string | null;
+  ne: string | null;
+  regex: string | null;
+  glob: string | null;
+  in: Array<string> | null;
+}
 export interface markdownRemarkConnectionFrontmatterCreatedDateQueryString_2 {
   eq: string | null;
   ne: string | null;
@@ -6420,6 +6438,8 @@ export interface markdownRemarkInternalFieldOwnersSlugQueryString_2 {
 
 export interface markdownRemarkFrontmatterInputObject_2 {
   title: markdownRemarkFrontmatterTitleQueryString_2 | null;
+  category : markdownRemarkFrontmatterCategoryQueryString_2 | null;
+  header : markdownRemarkFrontmatterHeaderQueryString_2 | null;
   createdDate: markdownRemarkFrontmatterCreatedDateQueryString_2 | null;
   updatedDate: markdownRemarkFrontmatterUpdatedDateQueryString_2 | null;
   author: markdownRemarkFrontmatterAuthorQueryString_2 | null;
@@ -6430,6 +6450,20 @@ export interface markdownRemarkFrontmatterInputObject_2 {
 }
 
 export interface markdownRemarkFrontmatterTitleQueryString_2 {
+  eq: string | null;
+  ne: string | null;
+  regex: string | null;
+  glob: string | null;
+  in: Array<string> | null;
+}
+export interface markdownRemarkFrontmatterHeaderQueryString_2 {
+  eq: string | null;
+  ne: string | null;
+  regex: string | null;
+  glob: string | null;
+  in: Array<string> | null;
+}
+export interface markdownRemarkFrontmatterCategoryQueryString_2 {
   eq: string | null;
   ne: string | null;
   regex: string | null;

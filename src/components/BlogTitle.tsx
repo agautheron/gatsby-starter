@@ -3,16 +3,8 @@ import { Header, Segment, Icon } from "semantic-ui-react";
 
 export default (prop) => {
   return (
-    <Segment vertical>
-      <Header as="h2">
-        <Icon name={prop.icon} />
-        <Header.Content>
-          {prop.title}
-            <Header.Subheader>
-            {prop.header}
-            </Header.Subheader>
-        </Header.Content>
-      </Header>
+    <Segment as="h1" vertical inverted textAlign='center' size="big">
+        <Icon name={prop.icon} />{prop.title}{prop.header}
     </Segment>
   );
 };

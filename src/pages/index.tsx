@@ -19,15 +19,21 @@ const IndexPage = (props: LayoutProps) =>
         Link={Link} pathname={props.location.pathname} items={menuItems} inverted
       />
       <Container text>
-        <Header inverted as="h1">Gatsby 2.0 - Starter kit</Header>
-        <Header inverted as="h2">Typescript - Jest - Semantic UI</Header>
-        <Button primary size="huge">Get started!</Button>
+        <Header inverted as="h1">Marie &#38; Arthur
+        <Header.Subheader inverted as="h2">13 juillet 2020</Header.Subheader>
+        </Header>
       </Container>
     </Segment>
 
     {/* About this starter */}
     <Segment vertical className="stripe">
       <Grid stackable verticalAlign="middle" className="container">
+        <Grid.Row centered>
+      <p>
+      Vous trouverez sur ce site toutes les informations pour notre mariage. 
+      Que vous veniez en Normandie pour la première fois ou que vous soyez des grands habitués, vous trouverez quelques propositions de balades, de visites ainsi que quelques logements que nous avons repéré pour vous.
+      </p>
+        </Grid.Row>
         <Grid.Row>
           <Grid.Column width="8">
             <Header>Lorem ipsum</Header>
