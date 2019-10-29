@@ -1,4 +1,6 @@
 module.exports = {
+  
+  pathPrefix: `/gatsby-starter`,
   siteMetadata: {
     title: `Marie & Arthur`,
     googleVerification: `abcdefz`,
@@ -73,8 +75,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby website`,
-        short_name: `Gatsby website`,
+        name: `Marie & Arthur`,
+        short_name: `Marie & Arthur`,
         start_url: `/`,
         background_color: `#f7f7f7`,
         theme_color: `#191919`,

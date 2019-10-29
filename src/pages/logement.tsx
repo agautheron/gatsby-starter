@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "gatsby";
+import { Link, withPrefix } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { Header, Grid, Card, List, Container, Feed, Segment, Comment } from "semantic-ui-react";
 import { MarkdownRemarkConnection, ImageSharp } from "../graphql-types";
@@ -16,7 +16,7 @@ interface BlogProps extends LayoutProps {
     tags: MarkdownRemarkConnection;
     posts: MarkdownRemarkConnection;
   };
-  pathContext: {
+  pageContext: {
     tag?: string; // only set into `templates/tags-pages.tsx`
   };
 }
@@ -26,11 +26,13 @@ const BlogPage = (props: BlogProps) => {
   const posts = props.data.posts.edges;
   const { pathname } = props.location;
   const pageCount = Math.ceil(props.data.posts.totalCount / 10);
-  const root = menuItems.find(e=>e.path == pathname);
-  if(isNull(root)){
+  console.log(pathname)
+  const root = menuItems.find(e=>withPrefix(e.path) == pathname) ;
+  /*if(isNull(root)){
     const root = subMenuItems.find(function(element) {
       return pathname.includes(element.path)});
-  }
+  }*/
+  console.log(root)
   // TODO export posts in a proper component
   const Posts = (
  /*   <Container> */
@@ -149,6 +151,7 @@ query PageLogement {
         frontmatter {
           category
           title
+          header
           updatedDate(formatString: "DD MMMM, YYYY")
           image {
           	children {

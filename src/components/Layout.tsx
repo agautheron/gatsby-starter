@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+import { Link ,  withPrefix } from "gatsby";
 import * as React from "react";
 import HeaderMenu from "./HeaderMenu/HeaderMenu";
 import SidebarMenu from "./SidebarMenu/SidebarMenu";
@@ -7,18 +7,19 @@ import "../css/styles.css";
 import "../css/responsive.css";
 import "../css/semantic.min.css";
 import "../css/background.css";
+import "../css/all.min.css";
 import "prismjs/themes/prism-okaidia.css";
 import { Provider } from "react-redux";
 import { store } from "../store";
 export const subMenuItems = [
-  {name: "Cérémonie", path: "/messe/", exact: true, icon: "church", inverted: true},
-  {name: "Cocktail", path: "/cocktail/", exact: true, icon: "champagne", inverted: true},
+  {name: "Cérémonie", path: "/messe/", exact: true, icon: "fas fa-church", inverted: true},
+  {name: "Cocktail", path:  "/cocktail/", exact: true, icon: "fas fa-glass-cheers", inverted: true},
 ];
 export const menuItems = [
-  {name: "Le Mariage", path: "/", exact: true, icon: "home", inverted: true, children: subMenuItems},
-  { name: "Où loger ?", path: "/logement/", exact: true, icon: "home", inverted: true},
-  { name: "Que visiter ?", path: "/interests/", exact: true, icon: "university" , inverted: true},
-  {name : "Où se balader ?", path: "/balades/", exact : true, icon: "image", inverted: true},
+  {name: "Le Mariage", path:  "/", exact: true, icon: "fas fa-home", inverted: true, children: subMenuItems},
+  { name: "Où loger ?", path:  "/logement/", exact: true, icon: "fas fa-home", inverted: true},
+  { name: "Que visiter ?", path:  "/interests/", exact: true, icon: "fas fa-university" , inverted: true},
+  {name : "Où se balader ?", path:  "/balades/", exact : true, icon: "far fa-image", inverted: true},
 ];
 
 export interface LayoutProps {

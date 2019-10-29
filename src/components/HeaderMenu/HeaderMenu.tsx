@@ -13,8 +13,8 @@ interface HeaderMenuProps extends MenuProps {
 export const HeaderMenu = ({ items, pathname, Link, inverted, dispatch}: HeaderMenuProps) =>
   <Container>
     <Menu size="large" pointing secondary inverted={inverted}>
-      <Menu.Item as="a" className="mobile only" icon="sidebar" onClick={() => dispatch && dispatch(toggleSidebar())} size="big"/><Menu.Item as="a" className="mobile only" size="big">Marie &#38; Arthur</Menu.Item>
-      <Menu.Item as="a" to="http://localhost:8000/" className="mobile hidden"><Icon name="heart" size="big" /></Menu.Item>
+      <Menu.Item as="a" className="mobile only" icon="fa sidebar" onClick={() => dispatch && dispatch(toggleSidebar())} size="big"/><Menu.Item as="a" className="mobile only" size="big">Marie &#38; Arthur</Menu.Item>
+      <Menu.Item as="a" to="http://localhost:8000/" className="mobile hidden"><Icon name="fa heart" size="big" /></Menu.Item>
       {items.map((item) => {
         const active = (item.exact) ? pathname === item.path : pathname.startsWith(item.path);
         const hasChildren = (item.children) ? true : false;
