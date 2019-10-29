@@ -130,7 +130,7 @@ query PageBalades {
     sort: { order: DESC, fields: [frontmatter___updatedDate] },
     filter: {
       frontmatter: { draft: { ne: true } },
-      fileAbsolutePath: { regex: "/balades/" }
+      fileAbsolutePath: { regex: "gatsby-starter/balades/" }
     },
     limit: 10
   ) {
