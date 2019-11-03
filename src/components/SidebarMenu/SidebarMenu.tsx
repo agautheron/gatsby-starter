@@ -4,7 +4,7 @@ import { Dispatch } from "redux";
 import { GatsbyLinkProps } from "gatsby-link";
 import { StoreState } from "../../store";
 import { MenuProps, MenuItem } from "../Menu";
-import { Menu, Icon, Sidebar,Dropdown } from "semantic-ui-react";
+import { Menu, Icon, Sidebar,Dropdown, Header, Item } from "semantic-ui-react";
 import { SemanticICONS } from "semantic-ui-react";
 
 interface SidebarMenuProps extends MenuProps {
@@ -24,28 +24,40 @@ export const SidebarMenu = ({ items, pathname, Link, visible }: SidebarMenuProps
         const hasChildren = (item.children) ? true : false;
 		if (hasChildren) {
           const children = item.children.slice();
-          return <Menu.Item>
-          <Menu.Header>
-		  	<Icon name={item.icon as SemanticICONS}/>
-			{item.name}
-			</Menu.Header>
-
-       <Menu.Menu> 
-       {/*   <Sidebar as={Menu} animation="slide bottom" width="thin"
-      visible={visible} icon="labeled" vertical inverted={activeItem.inverted}>*/}
+      //     return <Dropdown text={item.name} vertical fluid>
+      //    <Dropdown.Menu>
+      //  {/*   <Sidebar as={Menu} animation="slide bottom" width="thin"
+      // visible={visible} icon="labeled" vertical inverted={activeItem.inverted}>*/}
+      //       {children.map((child) => {
+      //           return <Menu.Item
+      //           as={Link}
+      //           to={child.path}
+      //           key={child.path}
+      //           active={active}>
+			// 	<Icon name={child.icon  as SemanticICONS}/>
+			// 	{child.name}
+			// 	</Menu.Item>;
+      //       })}
+      //       {/*  </Sidebar>*/}
+      // </Dropdown.Menu>
+      // </Dropdown>;
+      return <Header as={Item} inverted={activeItem.inverted}>
+    <Icon name={item.icon + " big"} />
+    <Header.Content>
+      <Dropdown text={item.name+" "} vertical>
+          <Dropdown.Menu>
             {children.map((child) => {
-                return <Menu.Item
+                return <Dropdown.Item
                 as={Link}
                 to={child.path}
                 key={child.path}
-                active={active}>
-				<Icon name={child.icon as SemanticICONS}/>
-				{child.name}
-				</Menu.Item>;
+                active={active}
+                ><Icon name={child.icon as SemanticICONS}/>{child.name}</Dropdown.Item>;
             })}
-            {/*  </Sidebar>*/}
-      </Menu.Menu>
-        </Menu.Item>;
+        </Dropdown.Menu>
+        </Dropdown>
+        </Header.Content>
+        </Header>;
         }
         return (
           <Menu.Item as={Link} to={item.path} active={active} key={item.path}>

@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { toggleSidebar } from "../../store";
-import { Container, Label, Menu, Icon, Item, Dropdown, Button} from "semantic-ui-react";
+import { Container, Label, Menu, Icon, Item, Dropdown, Header} from "semantic-ui-react";
 import { MenuProps } from "../Menu";
 
 interface HeaderMenuProps extends MenuProps {
@@ -13,14 +13,18 @@ interface HeaderMenuProps extends MenuProps {
 export const HeaderMenu = ({ items, pathname, Link, inverted, dispatch}: HeaderMenuProps) =>
   <Container>
     <Menu size="large" pointing secondary inverted={inverted}>
-      <Menu.Item as="a" className="mobile only" icon="fa sidebar" onClick={() => dispatch && dispatch(toggleSidebar())} size="big"/><Menu.Item as="a" className="mobile only" size="big">Marie &#38; Arthur</Menu.Item>
-      <Menu.Item as="a" to="http://localhost:8000/" className="mobile hidden"><Icon name="fa heart" size="big" /></Menu.Item>
+      <Menu.Item as="a" className="mobile only" icon="fas fa-bars" onClick={() => dispatch && dispatch(toggleSidebar())} size="big"/>
+      <Menu.Item as="a" className="mobile only" size="big">Marie &#38; Arthur</Menu.Item>
+      <Menu.Item as="a" to="http://localhost:8000/" className="mobile hidden"><Icon name="fas fa-heart" size="big" /></Menu.Item>
       {items.map((item) => {
         const active = (item.exact) ? pathname === item.path : pathname.startsWith(item.path);
         const hasChildren = (item.children) ? true : false;
         if (hasChildren) {
           const children = item.children.slice();
-          return <big><Dropdown item text={item.name} className="mobile hidden">
+          return <Header as={Menu.Item} className="mobile hidden" active={active}>
+    <Icon name={item.icon + " big"}/>
+    <Header.Content>
+      <Dropdown text={item.name} className="noMargins mobile hidden" simple item>
           <Dropdown.Menu>
             {children.map((child) => {
                 return <Dropdown.Item
@@ -29,10 +33,12 @@ export const HeaderMenu = ({ items, pathname, Link, inverted, dispatch}: HeaderM
                 to={child.path}
                 key={child.path}
                 active={active}
-                ><Icon name={child.icon}/>{child.name}</Dropdown.Item>;
+                ><Icon name={child.icon + " big"} size="big"/>{child.name}</Dropdown.Item>;
             })}
         </Dropdown.Menu>
-        </Dropdown></big>;
+        </Dropdown>
+        </Header.Content>
+        </Header>;
         }
         return <Menu.Item
           as={Link}

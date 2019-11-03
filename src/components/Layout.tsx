@@ -16,7 +16,7 @@ export const subMenuItems = [
   {name: "Cocktail", path:  "/cocktail/", exact: true, icon: "fas fa-glass-cheers", inverted: true},
 ];
 export const menuItems = [
-  {name: "Le Mariage", path:  "/", exact: true, icon: "fas fa-home", inverted: true, children: subMenuItems},
+  {name: "Le Mariage", path:  "/", exact: true, icon: "fab fa-centos", inverted: true, children: subMenuItems},
   { name: "Où loger ?", path:  "/logement/", exact: true, icon: "fas fa-home", inverted: true},
   { name: "Que visiter ?", path:  "/interests/", exact: true, icon: "fas fa-university" , inverted: true},
   {name : "Où se balader ?", path:  "/balades/", exact : true, icon: "far fa-image", inverted: true},
@@ -31,7 +31,7 @@ export interface LayoutProps {
 
 const Layout = (props: LayoutProps) => {
 const  {pathname}  = props.location;
-const isHome = (pathname === "/") ; {/* || (pathname === "/messe/") || (pathname="/cocktail/"); */}
+const isHome = (pathname === withPrefix("/")) ; {/* || (pathname === "/messe/") || (pathname="/cocktail/"); */}
 
 return (
     <Provider store={store}>
