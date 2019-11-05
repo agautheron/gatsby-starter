@@ -5197,7 +5197,7 @@
      font-family: "Font Awesome 5 Free";
     font-weight: 900;
 }
-.header > i.icon.fab{
+.menu > .item > i.icon.fab{
     font-family:"Font Awesome 5 Brands";
 }
 div .noMargins{
@@ -15369,14 +15369,14 @@ div .noMargins{
      padding-top: .57142857em;
      padding-bottom: .57142857em
  }
-
+/*
  .ui.menu .header.item, .ui.vertical.menu .header.item {
      margin: 0;
      background: 0 0;
      text-transform: normal;
      font-weight: 700
  }
-
+*/
  .ui.vertical.menu .item>.header:not(.ui) {
      margin: 0 0 .5em;
      font-size: 1em;
@@ -15405,7 +15405,7 @@ div .noMargins{
 
  .ui.menu .ui.dropdown .menu>.item {
      margin: 0;
-     text-align: left;
+     text-align: center;
      font-size: 1em!important;
      padding: .78571429em 1.14285714em!important;
      background: 0 0!important;
@@ -15445,8 +15445,8 @@ div .noMargins{
 
  .ui.secondary.menu .dropdown.item>.menu, .ui.text.menu .dropdown.item>.menu {
      border-radius: .28571429rem;
- /*    margin-top: .35714286em*/
-     margin-top:1.41428586em;
+     margin-top: .35714286em
+ /*    margin-top:1.41428586em;*/
  }
 
  .ui.menu .pointing.dropdown.item .menu {
@@ -15464,11 +15464,12 @@ div .noMargins{
  }
 
  .ui.vertical.menu .dropdown.item .menu {
-     left: 100%;
+    /* left: 100%; */
      min-width: 0;
      margin: 0;
      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .08);
-     border-radius: 0 .28571429rem .28571429rem
+     border-radius: 0 .28571429rem .28571429rem;
+     position:relative;
  }
 
  .ui.vertical.menu .dropdown.item.upward .menu {
@@ -21183,8 +21184,16 @@ div .noMargins{
 
  .ui.dropdown>.text {
      display: inline-block;
-     -webkit-transition: none;
+   /*   -webkit-transition: none;
      transition: none;
+     border-bottom-color: transparent;
+     border-bottom-style: solid;
+     border-radius: 0;
+     align-self: flex-end;
+    padding: .85714286em 1.14285714em; 
+     border-bottom-width: 2px;
+     -webkit-transition: color .1s ease;
+     transition: color .1s ease; */
      /*font-weight:400;
      font-size: 1rem; */
  }
@@ -21947,7 +21956,8 @@ div .noMargins{
      width: 0;
      height: 0;
      -webkit-transition: opacity .1s ease;
-     transition: opacity .1s ease
+     transition: opacity .1s ease;
+     margin-top:1.41428586em;
  }
 
  .ui.simple.active.dropdown, .ui.simple.dropdown:hover {
@@ -21957,7 +21967,7 @@ div .noMargins{
 
  .ui.simple.active.dropdown>.menu, .ui.simple.dropdown:hover>.menu {
      overflow: visible;
-     width: auto;
+     width: 100%;
      height: auto;
      top: 100%!important;
      opacity: 1
@@ -22207,9 +22217,9 @@ div .noMargins{
      content: "\f0d9"
  }
 
- .ui.vertical.menu .dropdown.item>.dropdown.icon:before {
+ /*.ui.vertical.menu .dropdown.item>.dropdown.icon:before {
      content: "\f0da"
- }
+ }*/
 
  .ui.embed {
      position: relative;

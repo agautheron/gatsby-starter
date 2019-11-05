@@ -114,7 +114,7 @@ query PageBlog {
     sort: { order: DESC, fields: [frontmatter___updatedDate] },
     filter: {
       frontmatter: { draft: { ne: true } },
-      fileAbsolutePath: { regex: "/blog/" }
+      fileAbsolutePath: { regex: "/gatsby-starter/blog/" }
     },
     limit: 10
   ) {
@@ -134,7 +134,7 @@ query PageBlog {
           image {
           	children {
               ... on ImageSharp {
-                fixed(width: 700, height: 100) {
+                fixed(width: 300, height: 300) {
                   src
                   srcSet
                 }
