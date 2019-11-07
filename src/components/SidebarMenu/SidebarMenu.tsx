@@ -17,9 +17,9 @@ export const SidebarMenu = ({ items, pathname, Link, visible }: SidebarMenuProps
   const isActive = (item: MenuItem) => (item.exact) ? pathname === item.path : pathname.startsWith(item.path);
   const activeItem = items.find((item: MenuItem) => isActive(item)) || {} as MenuItem;
   return (
-    <Sidebar as={Menu} animation="slide along" width="thin"
+    <Sidebar id="SidebarId" as={Menu} animation="slide along" width="thin"
       visible={visible} icon="labeled" vertical inverted={activeItem.inverted}>
-      <Menu.Item as={Link} to="/" key="/">
+      <Menu.Item as={Link} to="/" key="/" onClick={() => {document.getElementById("SidebarId").classList.remove("visible");}} >
             <Icon name={"fas fa-heart" as SemanticICONS} />
            Accueil
           </Menu.Item>
@@ -56,17 +56,28 @@ export const SidebarMenu = ({ items, pathname, Link, visible }: SidebarMenuProps
           active={active}>
           <DropdownCustom.Menu>
             {children.map((child) => {
-                return <DropdownCustom.Item
-                as={Link}
-                to={child.path}
-                key={child.path}
-                active={active}
+              const childActive = (child.exact) ? pathname === child.path : pathname.startsWith(child.path);
+              if (child.name=="Liste de Mariage"){
+                return  <DropdownCustom.Item
+                as={"a"}
+                href={child.path}
+                active={childActive}
+                target="_blank"
+                onClick={() => {document.getElementById("SidebarId").classList.remove("visible");}} 
                 ><Icon name={child.icon + " big"} size="big"/>{child.name}</DropdownCustom.Item>;
-            })}
+              }
+              return <DropdownCustom.Item
+              as={Link}
+              to={child.path}
+              key={child.path}
+              active={childActive}
+                onClick={() => {document.getElementById("SidebarId").classList.remove("visible");}} 
+              ><Icon name={child.icon + " big"} size="big"/>{child.name}</DropdownCustom.Item>;
+          })}
         </DropdownCustom.Menu></DropdownCustom>;
         }
         return (
-          <Menu.Item as={Link} to={item.path} active={active} key={item.path}>
+          <Menu.Item as={Link} to={item.path} active={active} key={item.path} onClick={() => {document.getElementById("sidebar").classList.remove("visible");}} >
             <Icon name={item.icon as SemanticICONS} />
             {item.name}
           </Menu.Item>);

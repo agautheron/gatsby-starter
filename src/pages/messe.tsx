@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "gatsby";
+import { withPrefix} from "gatsby";
 import HeaderMenu from "../components/HeaderMenu/HeaderMenu";
 import { withLayout, LayoutProps, menuItems, Background } from "../components/Layout";
 import "../css/index.css";
@@ -11,7 +11,7 @@ import {
   Grid,
   Header,
   Icon,
-  Image,
+  Image
 } from "semantic-ui-react";
 
 const IndexPage = (props: LayoutProps) =>
@@ -32,7 +32,7 @@ const IndexPage = (props: LayoutProps) =>
      {/* </Container> */}
 	 <Segment vertical inverted textAlign="center" className=" vertical inverted masthead responsive">
 <HeroImage
-		imageSrc="https://fondation-st-matthieu.org/wp-content/uploads/2016/11/%C3%A9glise-saint-Gilles.jpg"
+		imageSrc={withPrefix("/icons/SaintGilles.jpg")}
 		color="#555555"
 		gradientDirection="to bottom right"
 		height="87vh"
@@ -46,38 +46,7 @@ const IndexPage = (props: LayoutProps) =>
 		<button>Click me!</button>*/}
 	</HeroImage>
 	</Segment>
-    {/* About this starter */}
-   {/* <Segment vertical className="stripe">
-      <Grid stackable verticalAlign="middle" className="container">
-        <Grid.Row>
-          <Grid.Column width="8">
-            <Header>Lorem ipsum</Header>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Porro laudantium ad, quae, perspiciatis ipsa distinctio.
-                </p>
-            <Header>Dolor sit amet</Header>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Porro laudantium ad, quae, perspiciatis ipsa distinctio.
-                </p>
-          </Grid.Column>
-          <Grid.Column width="6" floated="right">*/}
-            {/* TODO replace with a pretty GIF */}
-     {/*       <Header>Lorem ipsum</Header>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Porro laudantium ad, quae, perspiciatis ipsa distinctio.
-                </p>
-            <Header>Dolor sit amet</Header>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Porro laudantium ad, quae, perspiciatis ipsa distinctio.
-                </p>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>*/}
+   
 
     {/* Key features */}
     <Segment vertical className="stripe alternate feature">
@@ -98,10 +67,7 @@ const IndexPage = (props: LayoutProps) =>
               Horaires
             </Header>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Voluptas eaque at quae cupiditate aspernatur quibusdam!
-                  Distinctio quod non, harum dolorum earum molestias,
-                  beatae expedita aliquam dolorem asperiores nemo amet quaerat.
+              La cérémonie de mariage aura lieu à 15h30.
                 </p>
           </Grid.Column>
           <Grid.Column>
@@ -110,12 +76,49 @@ const IndexPage = (props: LayoutProps) =>
               Parking
             </Header>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Voluptas eaque at quae cupiditate aspernatur quibusdam!
-                  Distinctio quod non, harum dolorum earum molestias,
-                  beatae expedita aliquam dolorem asperiores nemo amet quaerat.
+              Il est difficile de se garer aux alentours de l'église, ainsi nous vous encourageons à venir à pied !
                 </p>
           </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </Segment>
+     {/* About this starter */}
+   <Segment vertical className="stripe">
+      <Grid stackable verticalAlign="middle" className="container" textAlign="center">
+        <Grid.Row>
+          <Grid.Column width="8">
+            <Header as="h2">Les Chants</Header>
+            <p>
+              Vous trouverez l'ensemble des chants de la messe ci-dessous : <br/>
+              <iframe height="auto" width="max-content" src="https://www.youtube.com/embed/mYIWiqhTB2g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </p>
+            </Grid.Column>
+            <Grid.Column width="8" floated="right">
+            <Header as="h2">Les partitions</Header>
+            <p>
+            L'ensemble des partitions sont téléchargeables via l'image ci-dessous
+            <Image
+              src={withPrefix('/icons/partition.png')}
+              as='a'
+              size='medium'
+              href='http://google.com'
+              target='_blank'
+            />
+            </p>
+          </Grid.Column>
+       {/*   <Grid.Column width="6" floated="right">*/}
+            {/* TODO replace with a pretty GIF */}
+     {/*       <Header>Lorem ipsum</Header>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Porro laudantium ad, quae, perspiciatis ipsa distinctio.
+                </p>
+            <Header>Dolor sit amet</Header>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Porro laudantium ad, quae, perspiciatis ipsa distinctio.
+                </p>
+          </Grid.Column>*/}
         </Grid.Row>
       </Grid>
     </Segment>
