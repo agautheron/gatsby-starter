@@ -32,7 +32,7 @@ const IndexPage = (props: LayoutProps) =>
      {/* </Container> */}
 	 <Segment vertical inverted textAlign="center" className=" vertical inverted masthead responsive">
 <HeroImage
-		imageSrc="https://upload.wikimedia.org/wikipedia/commons/c/ca/MoulindeBully001.JPG"
+    imageSrc="/icons/MoulindeBully.jpg"
 		color="#555555"
 		gradientDirection="to bottom right"
 		height="87vh"

@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { toggleSidebar } from "../../store";
-import { Container, Label, Menu, Icon, Item, DropdownCustom, Header} from "semantic-ui-react";
+import { Container,  Menu, Icon, DropdownCustom} from "semantic-ui-react";
 import { MenuProps } from "../Menu";
 
 interface HeaderMenuProps extends MenuProps {
@@ -22,22 +22,30 @@ export const HeaderMenu = ({ items, pathname, Link, inverted, dispatch}: HeaderM
         if (hasChildren) {
           const children = item.children.slice();
           return <DropdownCustom 
-          as={Link} to="/" key="/" 
+          as={Menu.Item} 
           text={item.name} 
           className="mobile hidden" 
           item 
           leftIcon={item.icon + " big"} 
-          simple 
-          inverted={inverted} 
-          active={active}>
+          simple >
           <DropdownCustom.Menu>
             {children.map((child) => {
+                const childActive = (child.exact) ? pathname === child.path : pathname.startsWith(child.path);
+                if (child.name=="Liste de Mariage"){
+                  return  <DropdownCustom.Item
+                  as={"a"}
+                  className="mobile hidden"
+                  href={child.path}
+                  active={childActive}
+                  target="_blank"
+                  ><Icon name={child.icon + " big"} size="big"/>{child.name}</DropdownCustom.Item>;
+                }
                 return <DropdownCustom.Item
                 as={Link}
                 className="mobile hidden"
                 to={child.path}
                 key={child.path}
-                active={active}
+                active={childActive}
                 ><Icon name={child.icon + " big"} size="big"/>{child.name}</DropdownCustom.Item>;
             })}
         </DropdownCustom.Menu></DropdownCustom>;
