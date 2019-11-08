@@ -136,7 +136,7 @@ query PageLogement {
     sort: { order: DESC, fields: [frontmatter___updatedDate] },
     filter: {
       frontmatter: { draft: { ne: true } },
-      fileAbsolutePath: { regex: "/logement/" }
+      fileAbsolutePath: { regex: "/gatsby-starter/logement/" }
     },
     limit: 10
   ) {
