@@ -51,7 +51,6 @@ const BlogPage = (props: BlogProps) => {
           src: withPrefix(get(frontmatter, "image.children.0.fixed", {}).src),
           srcSet: Array(get(frontmatter,"image.children.0.fixed",{}).srcSet.split("\n").map((element)=>withPrefix(element)).join('\n'))
         };
-        console.log(cover);
         const extra = (
           <Comment.Group>
             <Comment>

@@ -25,7 +25,6 @@ const BlogPage = (props: BlogProps) => {
   const posts = props.data.posts.edges;
   const { pathname } = props.location;
   const pageCount = Math.ceil(props.data.posts.totalCount / 100);
-  console.log(pathname)
   const root = menuItems.find(e=>withPrefix(e.path) == pathname) ;
   /*if(isNull(root)){
     const root = subMenuItems.find(function(element) {
@@ -38,7 +37,10 @@ const BlogPage = (props: BlogProps) => {
       posts.map(({ node }: {node: MarkdownRemark}) => {
         const { frontmatter, timeToRead, fields: { slug }, excerpt } = node;
         const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
-        const cover = get(frontmatter, "image.children.0.fixed", {});
+        const cover = {
+          src: withPrefix(get(frontmatter, "image.children.0.fixed", {}).src),
+          srcSet: Array(get(frontmatter,"image.children.0.fixed",{}).srcSet.split("\n").map((element)=>withPrefix(element)).join('\n'))
+        };
 
         const extra = (
           <Comment.Group>
@@ -117,7 +119,7 @@ const BlogPage = (props: BlogProps) => {
     <Container>
     {/* Title */}
     <BlogTitle icon={root.icon} title={root.name} header=""/>
-    <Segment vertical className="stripe noPadding">
+    <Segment vertical className="stripe smallPadding">
       <br/>
       <h3>Amis Caennais, si vous avez des lits disponibles à prêter, faites-nous signe !</h3>
       <br/>

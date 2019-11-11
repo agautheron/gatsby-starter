@@ -40,7 +40,10 @@ const BlogPage = (props: BlogProps) => {
       posts.map(({ node }: {node: MarkdownRemark}) => {
         const { frontmatter, timeToRead, fields: { slug }, excerpt } = node;
         const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
-        const cover = get(frontmatter, "image.children.0.fixed", {});
+        const cover = {
+          src: withPrefix(get(frontmatter, "image.children.0.fixed", {}).src),
+          srcSet: Array(get(frontmatter,"image.children.0.fixed",{}).srcSet.split("\n").map((element)=>withPrefix(element)).join('\n'))
+        };
 
         const extra = (
           <Comment.Group>
@@ -96,7 +99,7 @@ const BlogPage = (props: BlogProps) => {
       <Segment vertical>
        {/*} <Grid padded style={{ justifyContent: "space-around" }}> 
           <div style={{ maxWidth: 600 }}> */}
-      <div className="ui segment vertical stripe noPadding ">
+      <div className="ui segment vertical stripe smallPadding ">
             <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
       </div> 
         <Grid padded centered>
