@@ -14,14 +14,14 @@ import {
 const IndexPage = (props: LayoutProps) =>
   <div>
     {/* Master head */}
-    <Segment vertical inverted textAlign="center" className="masthead">
+    <Segment vertical textAlign="center" className="masthead">
       <HeaderMenu
-        Link={Link} pathname={props.location.pathname} items={menuItems} inverted
+        Link={Link} pathname={props.location.pathname} items={menuItems}
       />
       <Container text>
-        <Header inverted as="h1">Marie &#38; Arthur
+   {/*}     <Header inverted as="h1">Marie &#38; Arthur
         <Header.Subheader inverted as="h2">13 juillet 2020</Header.Subheader>
-        </Header>
+        </Header>*/}
       </Container>
     </Segment>
 

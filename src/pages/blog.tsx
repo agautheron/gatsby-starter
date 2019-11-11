@@ -20,11 +20,11 @@ interface BlogProps extends LayoutProps {
   };
 }
 
-const BlogPage = (props: BlogProps) => {
+const Blog = (props: BlogProps) => {
   const tags = props.data.tags.group;
   const posts = props.data.posts.edges;
   const { pathname } = props.location;
-  const pageCount = Math.ceil(props.data.posts.totalCount / 10);
+  const pageCount = Math.ceil(props.data.posts.totalCount / 100);
 
   // TODO export posts in a proper component
   const Posts = (
@@ -97,10 +97,10 @@ const BlogPage = (props: BlogProps) => {
   );
 };
 
-export default withLayout(BlogPage);
+export default withLayout(Blog);
 
 export const pageQuery = graphql`
-query PageBlog {
+query Blog {
   # Get tags
   tags: allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}}}) {
     group(field: frontmatter___tags) {
@@ -113,10 +113,9 @@ query PageBlog {
   posts: allMarkdownRemark(
     sort: { order: DESC, fields: [frontmatter___updatedDate] },
     filter: {
-      frontmatter: { draft: { ne: true } },
-      fileAbsolutePath: { regex: "/gatsby-starter/blog/" }
+      frontmatter: { draft: { ne: true } }
     },
-    limit: 10
+    limit: 100
   ) {
     totalCount
     edges {

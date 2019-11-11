@@ -1,5 +1,5 @@
 ---
-title: La petite Maison
+title: La petite Maison ☆☆☆
 header: 3 Route de Bully, 14320 Feuguerolles-Bully
 category: logement
 createdDate: "2019-11-07"
@@ -8,7 +8,7 @@ author: Fabien BERNARD
 tags:
   - chambre
   -  gite
-image: LaPetiteMaison.jpg
+image: laPetiteMaison.jpg
 draft: false
 ---
 

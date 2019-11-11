@@ -21,8 +21,7 @@ query TemplateTagPage($tag: String) {
       frontmatter: {
         draft: { ne: true }
         tags: { in: [$tag] }
-      },
-      fileAbsolutePath: { regex: "/tags/" }
+      }
     }
   ) {
     totalCount

@@ -25,7 +25,7 @@ const BlogPage = (props: BlogProps) => {
   const tags = props.data.tags.group;
   const posts = props.data.posts.edges;
   const { pathname } = props.location;
-  const pageCount = Math.ceil(props.data.posts.totalCount / 10);
+  const pageCount = Math.ceil(props.data.posts.totalCount / 100);
   const root = menuItems.find(e=>withPrefix(e.path) == pathname) ;
  /* if(isNull({root})){
     const root = subMenuItems.find(function(element) {
@@ -96,7 +96,9 @@ const BlogPage = (props: BlogProps) => {
       <Segment vertical>
        {/*} <Grid padded style={{ justifyContent: "space-around" }}> 
           <div style={{ maxWidth: 600 }}> */}
-          
+      <div className="ui segment vertical stripe noPadding ">
+            <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
+      </div> 
         <Grid padded centered>
           {/*<div style={{ maxWidth: 600 }}> */}
             {Posts}
@@ -104,9 +106,8 @@ const BlogPage = (props: BlogProps) => {
               <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
             </Segment>
          </div>
-        }  <div>
-            <TagsCard Link={Link} tags={tags} tag={props.pathContext.tag} />
-  </div> */}
+        */}  
+         
         </Grid>
       </Segment>
     </Container>
@@ -118,7 +119,9 @@ export default withLayout(BlogPage);
 export const pageQuery = graphql`
 query PageBalades {
   # Get tags
-  tags: allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}}}) {
+  tags: allMarkdownRemark(filter: {
+    frontmatter: {draft: {ne: true}}, 
+    fileAbsolutePath: { regex: "/balades/"}}) {
     group(field: frontmatter___tags) {
       fieldValue
       totalCount
@@ -132,7 +135,7 @@ query PageBalades {
       frontmatter: { draft: { ne: true } },
       fileAbsolutePath: { regex: "/balades/" }
     },
-    limit: 10
+    limit: 100
   ) {
     totalCount
     edges {

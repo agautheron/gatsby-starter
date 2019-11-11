@@ -23,7 +23,7 @@ query TemplateBlogPage($skip: Int) {
       },
     #  fileAbsolutePath: { regex: "/blog/" }
     }
-    limit: 10,
+    limit: 100,
     skip: $skip
   ) {
     totalCount

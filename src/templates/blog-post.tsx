@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "gatsby";
+import { Link, withPrefix } from "gatsby";
 import { get } from "lodash";
 import { Header, Container, Segment, Icon, Label, Button, Grid, Card, Image, Item, Comment } from "semantic-ui-react";
 import { MarkdownRemark, ImageSharp, MarkdownRemarkConnection, Site } from "../graphql-types";
@@ -62,6 +62,9 @@ const BlogPostPage = (props: BlogPostProps) => {
   const cover = get(frontmatter, "image.children.0.fixed", {} );
   return (
     <Container>
+      <Link 
+        to={withPrefix("/"+frontmatter.category+"/")}
+        key={withPrefix("/"+frontmatter.category+"/")} ><Icon name="arrow left"></Icon> Retour</Link>
       <BlogTitle />
       <Segment vertical style={{ border: "none" }}>
       {/*  <Item.Group>

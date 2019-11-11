@@ -25,14 +25,23 @@ const BlogPage = (props: BlogProps) => {
   const tags = props.data.tags.group;
   const posts = props.data.posts.edges;
   const { pathname } = props.location;
-  const pageCount = Math.ceil(props.data.posts.totalCount / 10);
-  const root = menuItems.find(e=>withPrefix(e.path) == pathname) ;
-  /*if(isNull(root)){
-    const root = subMenuItems.find(function(element) {
-      return pathname.includes(element.path)});
+  const pageCount = Math.ceil(props.data.posts.totalCount / 100);
+  const menuItem = menuItems.find(e=>withPrefix(e.path) == pathname);
+  var root;
+  if(menuItem == undefined){
+  /* Look into tags */
+    const tagName = pathname.split('/')[2];
+    const tagItem = tags.find((tag)=>{
+      return tag.fieldValue.toLowerCase().replace(/ /g, "-").replace("é", "e")==tagName;
+      }
+    );
+    console.log(tagItem)
+    var root={name: tagItem.fieldValue, icon:"label" };
+      
+  }else{
+    var root = {name: menuItem.name, 
+    icon :menuItem.icon}
   }
-  */
-  console.log(root)
   // TODO export posts in a proper component
   const Posts = (
     /* <Container>*/
@@ -86,7 +95,7 @@ const BlogPage = (props: BlogProps) => {
       })
    /* </Container>*/
   );
-
+  console.log(root)
   return (
     <Container>
       {/* Title */}
@@ -96,7 +105,9 @@ const BlogPage = (props: BlogProps) => {
       <Segment vertical>
        {/*} <Grid padded style={{ justifyContent: "space-around" }}> 
           <div style={{ maxWidth: 600 }}> */}
-          
+          <div className="ui segment vertical stripe noPadding ">
+            <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
+  </div> 
         <Grid padded centered>
           {/*<div style={{ maxWidth: 600 }}> */}
             {Posts}
@@ -104,9 +115,7 @@ const BlogPage = (props: BlogProps) => {
               <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
             </Segment>
          </div>
-        }  <div>
-            <TagsCard Link={Link} tags={tags} tag={props.pathContext.tag} />
-  </div> */}
+        */}  
         </Grid>
       </Segment>
     </Container>
@@ -118,7 +127,8 @@ export default withLayout(BlogPage);
 export const pageQuery = graphql`
 query PageVisites {
   # Get tags
-  tags: allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}}}) {
+  tags: allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}},
+    fileAbsolutePath: { regex: "/interests/" }}) {
     group(field: frontmatter___tags) {
       fieldValue
       totalCount
@@ -132,7 +142,7 @@ query PageVisites {
       frontmatter: { draft: { ne: true } },
       fileAbsolutePath: { regex: "/interests/" }
     },
-    limit: 10
+    limit: 100
   ) {
     totalCount
     edges {

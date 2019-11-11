@@ -199,7 +199,9 @@
      padding: 0;
      overflow-x: hidden;
      min-width: 320px;
-     background: #FFF;
+    /* background: #FFF; */
+    background-image: url("bg.png");
+    background-attachment: fixed;
      font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
      font-size: 14px;
      line-height: 1.4285em;
@@ -12014,7 +12016,7 @@ div .noMargins{
 
  .ui.segment {
      position: relative;
-     background: #FFF;
+    /* background: #FFF; */
      box-shadow: 0 1px 2px 0 rgba(34, 36, 38, .15);
      margin: 1rem 0;
      padding: 1em;
@@ -12031,10 +12033,10 @@ div .noMargins{
  }
 
  .ui.vertical.segment {
-     margin: 0;
+   /*   margin: 0; */
      padding-left: 0;
      padding-right: 0;
-     background: none;
+ /*    background: none; */
      border-radius: 0;
      box-shadow: none;
      border: none;
@@ -15874,7 +15876,8 @@ div .noMargins{
  }
 
  .ui.secondary.menu {
-     background: 0 0;
+ /*    background: 0 0; */
+    background-color: #f2f3f5;
      margin-left: -.35714286em;
      margin-right: -.35714286em;
      border-radius: 0;
@@ -20555,6 +20558,10 @@ div .noMargins{
      font-style: normal
  }
 
+ @font-face{
+    font-family: "Alex Brush";
+    src: url();
+ }
  .ui.accordion .accordion .title .dropdown.icon, .ui.accordion .title .dropdown.icon {
      font-family: Accordion;
      line-height: 1;
