@@ -1,7 +1,7 @@
 const fs = require('fs');
 const {inputRequired} = require('./utils');
 const authors = JSON.parse(fs.readFileSync('./data/author.json'));
-const categories =  [{id:'balades'},{id:'logement'},{id:'visites'}]
+const categories =  [{id:'balades'},{id:'logement'},{id:'interests'}]
 module.exports = plop => {
   plop.setGenerator('blog post', {
     prompts: [

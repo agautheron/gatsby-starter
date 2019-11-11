@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link, withPrefix } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
-import { Header, Grid, Card, List, Container, Feed, Segment, Comment } from "semantic-ui-react";
+import { Header, Grid, Card, List, Container, Feed, Segment, Comment, Tab } from "semantic-ui-react";
 import { MarkdownRemarkConnection, ImageSharp } from "../graphql-types";
 import BlogTitle from "../components/BlogTitle";
 import TagsCard from "../components/TagsCard/TagsCard";
@@ -9,7 +9,6 @@ import BlogPagination from "../components/BlogPagination/BlogPagination";
 import { get } from "lodash";
 import {withLayout, LayoutProps, menuItems, subMenuItems} from "../components/Layout";
 import { MarkdownRemark } from "../graphql-types";
-import { isNull } from "util";
 
 interface BlogProps extends LayoutProps {
   data: {
@@ -25,7 +24,7 @@ const BlogPage = (props: BlogProps) => {
   const tags = props.data.tags.group;
   const posts = props.data.posts.edges;
   const { pathname } = props.location;
-  const pageCount = Math.ceil(props.data.posts.totalCount / 10);
+  const pageCount = Math.ceil(props.data.posts.totalCount / 100);
   console.log(pathname)
   const root = menuItems.find(e=>withPrefix(e.path) == pathname) ;
   /*if(isNull(root)){
@@ -87,35 +86,54 @@ const BlogPage = (props: BlogProps) => {
       })
   /* </Container>*/
   );
+  
+ 
+  {/* Content */}
 
-  return (
+  const panes = [{
+      menuItem: { key: 'grid', icon: 'grid layout', content: 'Liste' },
+      render: () => <Tab.Pane>  
+      {/*} <Grid padded style={{ justifyContent: "space-around" }}> 
+         <div style={{ maxWidth: 600 }}> */}
+         
+       <Grid padded centered>
+           {Posts}
+          {/*  <Segment vertical textAlign="center">
+             <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
+           </Segment>
+        </div>
+        <div>
+           <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
+   </div>*/}
+       </Grid></Tab.Pane>,
+    },
+    {
+      menuItem: { key: 'map', icon: 'map', content: 'Carte' },
+      render: () => <Tab.Pane><iframe src="https://www.google.com/maps/d/embed?mid=1DNHrkhmUw-Pjs_NGUuM3WbcdFiKd3fat" width="100%" height="100%"></iframe></Tab.Pane>,
+    },
+  ]
+    
+  return ( 
     <Container>
-      {/* Title */}
-      <BlogTitle icon={root.icon} title={root.name} header=""/>
-      <Segment vertical>
-        <br/>
-        <h3>Amis Caennais, si vous avez des lits disponibles à prêter, faites-nous signe !</h3>
-        <br/>
-        <p>En attendant, vous trouverez ci-dessous quelques lieux à proximité du lieu du mariage. </p>
-        <br/>
-        </Segment>
-      {/* Content */}
-      <Segment vertical>
-       {/*} <Grid padded style={{ justifyContent: "space-around" }}> 
-          <div style={{ maxWidth: 600 }}> */}
-          
-        <Grid padded centered>
-            {Posts}
-           {/*  <Segment vertical textAlign="center">
-              <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
-            </Segment>
-         </div>
-		     <div>
-            <TagsCard Link={Link} tags={tags} tag={props.pathContext.tag} />
-</div>*/}
-        </Grid>
+    {/* Title */}
+    <BlogTitle icon={root.icon} title={root.name} header=""/>
+    <Segment vertical className="stripe noPadding">
+      <br/>
+      <h3>Amis Caennais, si vous avez des lits disponibles à prêter, faites-nous signe !</h3>
+      <br/>
+      <p>En attendant, vous trouverez ci-dessous quelques lieux à proximité du lieu du mariage. </p>
+      <br/>
+      
       </Segment>
-    </Container>
+      <Segment>
+      <div className="ui segment vertical stripe noPadding ">
+            <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
+  </div> 
+      </Segment>
+      <Segment vertical>
+  <Tab className="ui vertical segment stripe smallPadding" panes={panes}/>
+     </Segment>
+</Container>
   );
 };
 
@@ -124,7 +142,8 @@ export default withLayout(BlogPage);
 export const pageQuery = graphql`
 query PageLogement {
   # Get tags
-  tags: allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}}}) {
+  tags: allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}},
+    fileAbsolutePath: { regex: "/logement/" }}) {
     group(field: frontmatter___tags) {
       fieldValue
       totalCount
@@ -133,12 +152,12 @@ query PageLogement {
 
   # Get posts
   posts: allMarkdownRemark(
-    sort: { order: DESC, fields: [frontmatter___updatedDate] },
+    sort: { order: ASC, fields: [frontmatter___title] },
     filter: {
       frontmatter: { draft: { ne: true } },
       fileAbsolutePath: { regex: "/logement/" }
     },
-    limit: 10
+    limit: 100
   ) {
     totalCount
     edges {

@@ -41,6 +41,21 @@
 
 .ui.vertical.stripe {
   padding: 8em 0;
+  margin-bottom: 10rem;
+  background-color: #f2f3f5;
+}
+
+.ui.vertical.stripe.smallPadding {
+  padding: 2rem 0;
+  margin-bottom: 4rem;
+  background-color: #f2f3f5;
+}
+
+
+.ui.vertical.stripe.noPadding {
+  padding: 0em 0;
+  margin-bottom: 4rem;
+  background-color: #f2f3f5;
 }
 
 .ui.vertical.stripe h3 {
@@ -69,7 +84,7 @@
 }
 
 .ui.stripe.alternate {
-  background-color: #f2f3f5;
+  background-color: #f2f3f5; 
 }
 
 .quote.stripe.segment {

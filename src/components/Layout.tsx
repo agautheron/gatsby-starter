@@ -42,11 +42,11 @@ return (
 
         <Sidebar.Pusher style={{ minHeight: "100vh" }}>
           {/* Header */}
-          {isHome ? null : <HeaderMenu
+          {isHome ? null :<Segment vertical textAlign="center"> <HeaderMenu
             Link={Link}
             pathname={pathname}
             items={menuItems}
-          />}
+          /></Segment>}
 
           {/* Render children pages */}
           <div style={{ paddingBottom: 60 }}>

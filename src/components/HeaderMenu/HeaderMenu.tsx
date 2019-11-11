@@ -12,9 +12,7 @@ interface HeaderMenuProps extends MenuProps {
 
 export const HeaderMenu = ({ items, pathname, Link, inverted, dispatch}: HeaderMenuProps) =>
   <Container>
-    <Menu size="large" pointing secondary inverted={inverted}>
-      <Menu.Item as="a" className="mobile only" icon="fas fa-bars" onClick={() => dispatch && dispatch(toggleSidebar())} size="big"/>
-      <Menu.Item as="a" className="mobile only" size="big">Marie &#38; Arthur</Menu.Item>
+    <Menu size="large" pointing secondary inverted={inverted} compact className="mobile hidden">
       <Menu.Item as={Link} to="/" key="/" className="mobile hidden"><Icon name="fas fa-heart" size="big" /></Menu.Item>
       {items.map((item) => {
         const active = (item.exact) ? pathname === item.path : pathname.startsWith(item.path);
@@ -50,25 +48,6 @@ export const HeaderMenu = ({ items, pathname, Link, inverted, dispatch}: HeaderM
             })}
         </DropdownCustom.Menu></DropdownCustom>;
         }
-         /* return <Header as={Menu.Item} className="mobile hidden" active={active}>
-    <Icon name={item.icon + " big"}/>
-    <Header.Content>
-      <Dropdown text={item.name} className="noMargins mobile hidden" simple inverted={inverted}>
-          <Dropdown.Menu>
-            {children.map((child) => {
-                return <Dropdown.Item
-                as={Link}
-                className="mobile hidden"
-                to={child.path}
-                key={child.path}
-                active={active}
-                ><Icon name={child.icon + " big"} size="big"/>{child.name}</Dropdown.Item>;
-            })}
-        </Dropdown.Menu>
-        </Dropdown>
-        </Header.Content>
-        </Header>;
-        }*/
         return <Menu.Item
           as={Link}
           className="mobile hidden"
@@ -79,6 +58,10 @@ export const HeaderMenu = ({ items, pathname, Link, inverted, dispatch}: HeaderM
           icon={item.icon + " big"}
           size="big"/>;
           })}
+    </Menu>
+    <Menu size="large" pointing secondary inverted={inverted} fluid className="mobile only">
+    <Menu.Item as="a" className="mobile only" icon="fas fa-bars" onClick={() => dispatch && dispatch(toggleSidebar())} size="big"/>
+      <Menu.Item as="a" className="mobile only" size="big">Marie &#38; Arthur</Menu.Item>
     </Menu>
   </Container>;
 

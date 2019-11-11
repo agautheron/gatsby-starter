@@ -6,7 +6,7 @@ const {kebabCase, uniq, get, compact, times} = require('lodash');
 // - `templates/blog-page.tsx:23`
 // - `pages/blog.tsx:26`
 // - `pages/blog.tsx:121`
-const POSTS_PER_PAGE = 1000;
+const POSTS_PER_PAGE = 100;
 const cleanArray = arr => compact(uniq(arr));
 
 // Create slugs for files.
@@ -79,7 +79,7 @@ exports.createPages = ({graphql, actions}) => {
       // Create tags pages
       posts
         .reduce((mem, post) =>
-          cleanArray(mem.concat(get(post, 'frontmatter.tags')))
+          cleanArray(mem.concat(get(post, 'frontmatter.tags'),get(post,'frontmatter.category')))
         , [])
         .forEach(tag => {
           createPage({
@@ -89,7 +89,7 @@ exports.createPages = ({graphql, actions}) => {
               tag
             }
           });
-        });
+        }); 
 
       // Create blog pagination
       const pageCount = Math.ceil(posts.length / POSTS_PER_PAGE);
