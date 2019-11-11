@@ -1,6 +1,5 @@
 import * as React from "react";
 import { GatsbyLinkProps} from "gatsby-link";
-import {withPrefix} from "gatsby"
 import { Card, List } from "semantic-ui-react";
 import { markdownRemarkGroupConnectionConnection } from "../../graphql-types";
 
@@ -30,7 +29,7 @@ export default (props: TagsCardProps) => {
               <List.Item as="span" key={tag.fieldValue}>
                 <List.Icon name="tag" color={isActive ? "blue" : null} />
                 <List.Content style={isActive ? activeStyle : null}>
-                  <props.Link to={withPrefix(tagLink)}>
+                  <props.Link to={tagLink}>
                     {tag.fieldValue} ({tag.totalCount})
                   </props.Link>
                 </List.Content>
