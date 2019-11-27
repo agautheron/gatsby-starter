@@ -65,6 +65,7 @@
     "react-helmet": "5.0.3",
     "react-icons": "^3.7.0",
     "react-redux": "^5.0.7",
+    "react-sticky-header": "^0.2.0",
     "redux-devtools-extension": "^2.13.2",
     "semantic-ui-react": "0.88.1",
     "slash": "1.0.0",

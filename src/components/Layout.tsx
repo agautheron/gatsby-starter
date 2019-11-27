@@ -1,8 +1,9 @@
 import { Link ,  withPrefix } from "gatsby";
 import * as React from "react";
+import {Fragment, useEffect, useRef, useState, Visibility,Component  } from 'react';
 import HeaderMenu from "./HeaderMenu/HeaderMenu";
 import SidebarMenu from "./SidebarMenu/SidebarMenu";
-import { Segment, Icon, Container, Sidebar } from "semantic-ui-react";
+import { Segment, Container, Sidebar,Ref } from "semantic-ui-react";
 import "../css/styles.css";
 import "../css/responsive.css";
 import "../css/semantic.min.css";
@@ -14,7 +15,7 @@ import { store } from "../store";
 export const subMenuItems = [
   {name: "Cérémonie", path: "/messe/", exact: true, icon: "fas fa-church", inverted: true},
   {name: "Cocktail", path:  "/cocktail/", exact: true, icon: "fas fa-glass-cheers", inverted: true},
-  {name: "Liste de Mariage", path:"http://www.millemercismariage.com/AnneClaire-et-Martin/liste.html", exact:true, icon :"fas fa-gifts",inverted : true}
+  {name: "Liste de Mariage", path:"http://www.millemercismariage.com/arthuretmarie/liste.html", exact:true, icon :"fas fa-gifts",inverted : true}
 ];
 export const menuItems = [
   {name: "Le Mariage", path:  "/", exact: false, icon: "fab fa-centos", inverted: true, children: subMenuItems},
@@ -31,25 +32,32 @@ export interface LayoutProps {
 }
 
 const Layout = (props: LayoutProps) => {
-const  {pathname}  = props.location;
-const isHome = (pathname === withPrefix("/")) ; {/* || (pathname === "/messe/") || (pathname="/cocktail/"); */}
-
-return (
+  const  {pathname}  = props.location;
+  const isHome = (pathname === withPrefix("/")) ; {/* || (pathname === "/messe/") || (pathname="/cocktail/"); */}
+  
+  return (
     <Provider store={store}>
+      <div>
+          <HeaderMenu Link={Link}
+                pathname={pathname}
+                items={menuItems}
+                          />
       <Sidebar.Pushable as={Segment}>
 
         <SidebarMenu Link={Link} pathname={pathname} items={menuItems} visible={false} />
 
-        <Sidebar.Pusher style={{ minHeight: "100vh" }}>
+        <Sidebar.Pusher > {/* style={{ minHeight: "100vh", paddingTop: "200px" }}> */}
+
+              
           {/* Header */}
-          {isHome ? null :<Segment vertical textAlign="center"> <HeaderMenu
-            Link={Link}
+         {/* <div className={`sticky-wrapper${isSticky ? ' sticky' : ''}`} ref={ref}>
+          <HeaderMenu Link={Link}
             pathname={pathname}
             items={menuItems}
-          /></Segment>}
-
+                      />
+  </div> */}
           {/* Render children pages */}
-          <div style={{ paddingBottom: 60 }}>
+          <div style={{ paddingBottom: 60 }} class="mainContent">
             {props.children}
           </div>
 
@@ -61,6 +69,7 @@ return (
           </Segment>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
+      </div>
     </Provider>
   );
 };
@@ -71,7 +80,7 @@ export const withLayout = <P extends object>(WrappedComponent: React.ComponentTy
   class WithLayout extends React.Component<P & LayoutProps> {
     render() {
       return (
-        <Layout location={this.props.location}>
+        <Layout location={this.props.location} ref={React.createRef()}>
           <WrappedComponent {...this.props} />
         </Layout>
       );

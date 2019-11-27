@@ -111,7 +111,7 @@ const BlogPage = (props: BlogProps) => {
     },
     {
       menuItem: { key: 'map', icon: 'map', content: 'Carte' },
-      render: () => <Tab.Pane><iframe src="https://www.google.com/maps/d/embed?mid=1DNHrkhmUw-Pjs_NGUuM3WbcdFiKd3fat" width="100%" height="100%"></iframe></Tab.Pane>,
+      render: () => <Tab.Pane><iframe src="https://www.google.com/maps/d/embed?mid=1DNHrkhmUw-Pjs_NGUuM3WbcdFiKd3fat" width="100%" height="300%"></iframe></Tab.Pane>,
     },
   ]
     
@@ -119,7 +119,7 @@ const BlogPage = (props: BlogProps) => {
     <Container>
     {/* Title */}
     <BlogTitle icon={root.icon} title={root.name} header=""/>
-    <Segment vertical className="stripe smallPadding">
+    <Segment vertical className="inversed smallPadding">
       <br/>
       <h3>Amis Caennais, si vous avez des lits disponibles à prêter, faites-nous signe !</h3>
       <br/>
@@ -127,13 +127,13 @@ const BlogPage = (props: BlogProps) => {
       <br/>
       
       </Segment>
-      <Segment>
+      <Segment className="content">
       <div className="ui segment vertical stripe noPadding ">
             <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
   </div> 
       </Segment>
       <Segment vertical>
-  <Tab className="ui vertical segment stripe smallPadding" panes={panes}/>
+  <Tab className="ui vertical segment smallPadding" panes={panes}/>
      </Segment>
 </Container>
   );

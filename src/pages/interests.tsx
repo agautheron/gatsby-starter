@@ -104,12 +104,14 @@ const BlogPage = (props: BlogProps) => {
       <BlogTitle icon={root.icon} title={root.name} header=""/>
 
       {/* Content */}
-      <Segment vertical>
+      <Segment vertical className="content">
        {/*} <Grid padded style={{ justifyContent: "space-around" }}> 
           <div style={{ maxWidth: 600 }}> */}
-          <div className="ui segment vertical stripe smallPadding ">
+          <div className="ui segment vertical stripe noPadding ">
             <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
   </div> 
+    </Segment>
+      <Segment className="content">
         <Grid padded centered>
           {/*<div style={{ maxWidth: 600 }}> */}
             {Posts}

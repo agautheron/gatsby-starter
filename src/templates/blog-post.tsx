@@ -62,9 +62,9 @@ const BlogPostPage = (props: BlogPostProps) => {
   const cover = get(frontmatter, "image.children.0.fixed", {} );
   return (
     <Container>
-      <Link 
-        to={withPrefix("/"+frontmatter.category+"/")}
-        key={withPrefix("/"+frontmatter.category+"/")} ><Icon name="arrow left"></Icon> Retour</Link>
+      <a
+        href="javascript:history.back()"
+       ><Icon name="arrow left"></Icon> Retour</a>
       <BlogTitle />
       <Segment vertical style={{ border: "none" }}>
       {/*  <Item.Group>
