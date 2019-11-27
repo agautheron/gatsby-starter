@@ -119,7 +119,7 @@ const BlogPage = (props: BlogProps) => {
     <Container>
     {/* Title */}
     <BlogTitle icon={root.icon} title={root.name} header=""/>
-    <Segment vertical className="stripe smallPadding">
+    <Segment vertical className="content smallPadding">
       <br/>
       <h3>Amis Caennais, si vous avez des lits disponibles à prêter, faites-nous signe !</h3>
       <br/>
@@ -127,13 +127,13 @@ const BlogPage = (props: BlogProps) => {
       <br/>
       
       </Segment>
-      <Segment>
+      <Segment className="content">
       <div className="ui segment vertical stripe noPadding ">
             <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
   </div> 
       </Segment>
       <Segment vertical>
-  <Tab className="ui vertical segment stripe smallPadding" panes={panes}/>
+  <Tab className="ui vertical segment smallPadding" panes={panes}/>
      </Segment>
 </Container>
   );

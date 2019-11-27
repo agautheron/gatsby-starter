@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql, withPrefix } from "gatsby";
 import { Header, Grid, Card, List, Container, Feed, Segment, Comment } from "semantic-ui-react";
 import { MarkdownRemarkConnection, ImageSharp } from "../graphql-types";
 import BlogTitle from "../components/BlogTitle";
@@ -32,8 +32,10 @@ const Blog = (props: BlogProps) => {
       {posts.map(({ node }: {node: MarkdownRemark}) => {
         const { frontmatter, timeToRead, fields: { slug }, excerpt } = node;
         const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
-        const cover = get(frontmatter, "image.children.0.fixed", {});
-
+        const cover = {
+          src: withPrefix(get(frontmatter, "image.children.0.fixed", {}).src),
+          srcSet: Array(get(frontmatter,"image.children.0.fixed",{}).srcSet.split("\n").map((element)=>withPrefix(element)).join('\n'))
+        };
         const extra = (
           <Comment.Group>
             <Comment>
@@ -62,12 +64,14 @@ const Blog = (props: BlogProps) => {
         );
 
         return (
-          <Card key={slug}
+          <Card
+            as={Link}
+            to={slug}
             fluid
             image={cover}
             header={frontmatter.title}
-            extra={extra}
-            description={description}
+        /*    extra={extra}
+            description={description} */
           />
         );
       })}
@@ -88,9 +92,9 @@ const Blog = (props: BlogProps) => {
               <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
             </Segment>
           </div>
-          <div>
+         {/* <div>
             <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
-          </div>
+         </div> */}
         </Grid>
       </Segment>
     </Container>

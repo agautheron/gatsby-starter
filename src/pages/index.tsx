@@ -12,18 +12,20 @@ import {
 } from "semantic-ui-react";
 
 const IndexPage = (props: LayoutProps) =>
-  <div>
+<div>
     {/* Master head */}
-    <Segment vertical textAlign="center" className="masthead">
-      <HeaderMenu
+  {/*}  <Segment vertical textAlign="center" className="masthead"> */}
+    {/*  <HeaderMenu
         Link={Link} pathname={props.location.pathname} items={menuItems}
-      />
-      <Container text>
-   {/*}     <Header inverted as="h1">Marie &#38; Arthur
-        <Header.Subheader inverted as="h2">13 juillet 2020</Header.Subheader>
-        </Header>*/}
-      </Container>
-    </Segment>
+      /> */}
+      <Segment className="firstSegment">
+       {/* <Container text> */}
+        <Header inverted as="h1">Marie &#38; Arthur
+          <Header.Subheader inverted as="h2">13 juillet 2020</Header.Subheader>
+          </Header>
+        {/* </Container> */}
+      </Segment>
+    {/*</div></Segment> */}
 
     {/* About this starter */}
     <Segment vertical className="stripe">

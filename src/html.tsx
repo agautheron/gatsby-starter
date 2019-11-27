@@ -3,6 +3,7 @@
 
 import * as React from "react";
 import Helmet from "react-helmet";
+import { func } from "prop-types";
 
 const config = require("../gatsby-config.js");
 
@@ -12,13 +13,14 @@ interface HtmlProps {
   headComponents: any;
 }
 
+
 export default (props: HtmlProps) => {
   const head = Helmet.rewind();
 
   const verification = config.siteMetadata && config.siteMetadata.googleVerification ? <meta
     name="google-site-verification"
     content={config.siteMetadata.googleVerification} /> : null;
-
+    
   return (
     <html lang="fr">
       <head>
@@ -34,9 +36,8 @@ export default (props: HtmlProps) => {
         {head.meta.toComponent()}
         {head.link.toComponent()}
         {verification}
-      
       </head>
-      <body>
+      <body  >
         <div
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}

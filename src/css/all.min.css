@@ -5848,6 +5848,22 @@
     src: url(../webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(../webfonts/fa-solid-900.woff2) format("woff2"), url(../webfonts/fa-solid-900.woff) format("woff"), url(../webfonts/fa-solid-900.ttf) format("truetype"), url(../webfonts/fa-solid-900.svg#fontawesome) format("svg")
 }
 
+@font-face {
+    font-family: 'Bad Script';
+    src: url(../webfonts/badscript-regular-webfont.woff2) format('woff2'),
+         url(../webfonts/badscript-regular-webfont.woff) format('woff'),
+         url(../webfonts/badscript-regular-webfont.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Apple Chancery Regular';
+    src: url(../webfonts/apple_chancery_regular-webfont.woff2) format('woff2'),
+         url(../webfonts/apple_chancery_regular-webfont.woff) format('woff'),
+         url(../webfonts/apple_chancery_regular-webfont.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
 .fa, .far, .fas {
     font-family: "Font Awesome 5 Free"
 }
