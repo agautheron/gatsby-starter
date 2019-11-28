@@ -30,7 +30,7 @@ const IndexPage = (props: LayoutProps) =>
         <Button primary size="huge">Get started!</Button>
 		</Background>*/} 
      {/* </Container> */}
-	 <Segment vertical inverted textAlign="center" className=" vertical inverted masthead responsive">
+	 <Segment vertical textAlign="center" className="masthead responsive heroImage">
 <HeroImage
     imageSrc={withPrefix("/icons/MoulindeBully.jpg")}
 		color="#555555"

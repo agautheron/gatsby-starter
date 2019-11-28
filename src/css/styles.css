@@ -149,6 +149,9 @@ pre {
 .ui.vertical.center.aligned.segment.masthead{
   padding-top: 0rem ;
 }
+.ui.vertical.center.aligned.segment.masthead.heroImage{
+  padding-top: 5vh;
+}
   /*
 .navbar {
 overflow: hidden;
@@ -194,14 +197,18 @@ e
   .ui.segment.firstSegment{
     /* height: -webkit-fill-available;
       min-height: 57rem;*/
-      height: 88vh;
-      padding: 43vw 8vh;
+      height: 94vh;
+   /*   padding: 20vh 18vw; */
       text-align: center;
     }
       
   .ui.segment.ui.segment.firstSegment > h1{
     font-family: "Bad Script";
-    font-size: 7rem;
+    font-size: 6rem;
+    margin: auto!important;
+    width: 70vw;
+    height: 65vh;
+    padding-top: 19vh;
   }
   .ui.segment.ui.segment.firstSegment > h1 > h2.sub.header{
     font-family: "Bad Script";
@@ -212,14 +219,19 @@ e
 @media only screen and (min-width:768px) {
   .ui.segment.firstSegment{
   /* height: -webkit-fill-available;
-    min-height: 57rem;*/
+    min-height: 57rem;
+    padding: 25vw 19vh;*/
     height: 94vh;
-    padding: 25vw 19vh;
+    text-align: center;
   }
     
   .ui.segment.ui.segment.firstSegment > h1{
     font-family: "Bad Script";
     font-size: 8rem;
+    margin: auto!important;
+    width: 50vw;
+    height: 65vh;
+    padding-top: 19vh;
   }
   .ui.segment.ui.segment.firstSegment > h1 > h2.sub.header{
     font-family: "Bad Script";
@@ -240,4 +252,26 @@ e
 
 .p{
   font-size: 2vw;
+}
+
+iframe.map{
+  height: 53vh;
+  width:100%;
+}
+
+.heroImage > div > div > h1{
+  font-family: "Bad Script";
+  font-size: 3rem;
+  box-shadow: none;
+}
+
+.heroText, .heroText>h3{
+  font-family: "Bad Script";
+  font-size: 3rem;
+  color: #ffffff;
+}
+.heroText>p{
+  font-family: "Bad Script";
+  font-size: 2rem;
+  color: #ffffff;
 }

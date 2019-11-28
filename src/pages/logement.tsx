@@ -111,7 +111,7 @@ const BlogPage = (props: BlogProps) => {
     },
     {
       menuItem: { key: 'map', icon: 'map', content: 'Carte' },
-      render: () => <Tab.Pane><iframe src="https://www.google.com/maps/d/embed?mid=1DNHrkhmUw-Pjs_NGUuM3WbcdFiKd3fat" width="100%" height="300%"></iframe></Tab.Pane>,
+      render: () => <Tab.Pane><iframe src="https://www.google.com/maps/d/embed?mid=1DNHrkhmUw-Pjs_NGUuM3WbcdFiKd3fat" className="map"></iframe></Tab.Pane>,
     },
   ]
     
@@ -119,7 +119,7 @@ const BlogPage = (props: BlogProps) => {
     <Container>
     {/* Title */}
     <BlogTitle icon={root.icon} title={root.name} header=""/>
-    <Segment vertical className="inversed smallPadding">
+    <Segment className="inversed smallPadding heroText">
       <br/>
       <h3>Amis Caennais, si vous avez des lits disponibles à prêter, faites-nous signe !</h3>
       <br/>

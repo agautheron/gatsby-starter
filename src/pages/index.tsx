@@ -20,7 +20,7 @@ const IndexPage = (props: LayoutProps) =>
       /> */}
       <Segment className="firstSegment">
        {/* <Container text> */}
-        <Header inverted as="h1">Marie &#38; Arthur
+        <Header inverted as="h1">Marie<br/>&#38;<br/>Arthur
           <Header.Subheader inverted as="h2">13 juillet 2020</Header.Subheader>
           </Header>
         {/* </Container> */}
@@ -31,37 +31,38 @@ const IndexPage = (props: LayoutProps) =>
     <Segment vertical className="stripe">
       <Grid stackable verticalAlign="middle" className="container">
         <Grid.Row centered>
-      <p>
-      Vous trouverez sur ce site toutes les informations pour notre mariage. 
+          <h1> Nous nous marions ! </h1>
+      <p><br/><br/>
+      Afin de répondre à un maximum de vos questions, vous trouverez sur ce site une multitude d'informations pour notre mariage. <br/>
       Que vous veniez en Normandie pour la première fois ou que vous soyez des grands habitués, vous trouverez quelques propositions de balades, de visites ainsi que quelques logements que nous avons repéré pour vous.
       </p>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column width="8">
-            <Header>Lorem ipsum</Header>
+            <Header as="h4"><Link to="/messe/">La Cérémonie</Link></Header>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Porro laudantium ad, quae, perspiciatis ipsa distinctio.
-                </p>
-            <Header>Dolor sit amet</Header>
+              La cérémonie de mariage aura lieu à 15h00 à l'Abbaye aux Dames,<br/>
+              <a href="https://goo.gl/maps/4iYhDanTvGfTPiPA8">Place de la Reine Mathilde, 14000 Caen</a>
+            </p>
+         {/*   <Header as="h4"><Link to="/cocktail/">Le Cocktail</Link></Header>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Porro laudantium ad, quae, perspiciatis ipsa distinctio.
-                </p>
+              La cérémonie de mariage aura lieu à 15h00 à l'Abbaye aux Dames,<br/>
+              <a href="https://goo.gl/maps/4iYhDanTvGfTPiPA8">Place de la Reine Mathilde, 14000 Caen</a>
+            </p>*/}
           </Grid.Column>
           <Grid.Column width="6" floated="right">
             {/* TODO replace with a pretty GIF */}
-            <Header>Lorem ipsum</Header>
+            <Header as="h4"><Link to="/cocktail/">Le Cocktail</Link></Header>
+            <p>
+              La cérémonie de mariage aura lieu à 15h00 à l'Abbaye aux Dames,<br/>
+              <a href="https://goo.gl/maps/4iYhDanTvGfTPiPA8">Place de la Reine Mathilde, 14000 Caen</a>
+            </p>
+         {/*   <Header>Dolor sit amet</Header>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Porro laudantium ad, quae, perspiciatis ipsa distinctio.
-                </p>
-            <Header>Dolor sit amet</Header>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Porro laudantium ad, quae, perspiciatis ipsa distinctio.
-                </p>
-          </Grid.Column>
+                </p>*/}
+          </Grid.Column> 
         </Grid.Row>
       </Grid>
     </Segment>

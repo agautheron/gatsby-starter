@@ -5196,6 +5196,7 @@
      text-decoration: inherit;
      text-transform: none
  }
+ /*
 .menu > .item > i.icon.fas {
      font-family: "Font Awesome 5 Free";
     font-weight: 900;
@@ -5204,6 +5205,14 @@
     font-family:"Font Awesome 5 Brands";
 }
 .menu > .item > i.icon.fab{
+    font-family:"Font Awesome 5 Brands";
+}
+*/
+i.icon.fas {
+    font-family: "Font Awesome 5 Free";
+   font-weight: 900;
+}
+i.icon.fab{
     font-family:"Font Awesome 5 Brands";
 }
 div .noMargins{

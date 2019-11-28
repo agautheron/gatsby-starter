@@ -56,6 +56,7 @@ export const HeaderMenu = ({ items, pathname, Link, inverted, dispatch}: HeaderM
             as={Link}
             className="mobile hidden"
             name={item.name}
+            content={item.name}
             to={item.path}
             key={item.path}
             active={active}

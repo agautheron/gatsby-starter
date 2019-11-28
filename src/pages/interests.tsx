@@ -7,7 +7,7 @@ import BlogTitle from "../components/BlogTitle";
 import TagsCard from "../components/TagsCard/TagsCard";
 import BlogPagination from "../components/BlogPagination/BlogPagination";
 import { get } from "lodash";
-import {withLayout, LayoutProps, menuItems, subMenuItems} from "../components/Layout";
+import {withLayout, LayoutProps, menuItems, subItems} from "../components/Layout";
 import { MarkdownRemark } from "../graphql-types";
 
 interface BlogProps extends LayoutProps {
@@ -25,22 +25,11 @@ const BlogPage = (props: BlogProps) => {
   const posts = props.data.posts.edges;
   const { pathname } = props.location;
   const pageCount = Math.ceil(props.data.posts.totalCount / 100);
-  const menuItem = menuItems.find(e=>withPrefix(e.path) == pathname);
-  var root;
-  if(menuItem == undefined){
-  /* Look into tags */
-    const tagName = pathname.split('/')[2];
-    const tagItem = tags.find((tag)=>{
-      return tag.fieldValue.toLowerCase().replace(/ /g, "-").replace("é", "e")==tagName;
-      }
-    );
-    console.log(tagItem)
-    var root={name: tagItem.fieldValue, icon:"label" };
-      
-  }else{
-    var root = {name: menuItem.name, 
-    icon :menuItem.icon}
-  }
+  var root = menuItems.find(e=>withPrefix(e.path) == pathname);
+  if(root==undefined){
+     root = subItems.find(function(element) {
+       return pathname.includes(element.path)});
+   }
   // TODO export posts in a proper component
   const Posts = (
     /* <Container>*/
