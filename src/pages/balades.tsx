@@ -7,7 +7,7 @@ import BlogTitle from "../components/BlogTitle";
 import TagsCard from "../components/TagsCard/TagsCard";
 import BlogPagination from "../components/BlogPagination/BlogPagination";
 import { get } from "lodash";
-import {withLayout, LayoutProps, menuItems, subMenuItems} from "../components/Layout";
+import {withLayout, LayoutProps, menuItems, subItems} from "../components/Layout";
 import { MarkdownRemark } from "../graphql-types";
 import { isNull } from "util";
 
@@ -26,12 +26,12 @@ const BlogPage = (props: BlogProps) => {
   const posts = props.data.posts.edges;
   const { pathname } = props.location;
   const pageCount = Math.ceil(props.data.posts.totalCount / 100);
-  const root = menuItems.find(e=>withPrefix(e.path) == pathname) ;
- /* if(isNull({root})){
-    const root = subMenuItems.find(function(element) {
+  var root = menuItems.find(e=>withPrefix(e.path) == pathname) ;
+ if(root==undefined){
+    root = subItems.find(function(element) {
       return pathname.includes(element.path)});
   }
-  if(isNull({root})){
+  /*if(isNull({root})){
     const root = {icon:"",title:""};
   }*/
   console.log(root)

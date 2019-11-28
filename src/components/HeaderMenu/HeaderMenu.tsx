@@ -33,15 +33,6 @@ export const HeaderMenu = ({ items, pathname, Link, inverted, dispatch}: HeaderM
             <DropdownCustom.Menu>
               {children.map((child) => {
                   const childActive = (child.exact) ? pathname === child.path : pathname.startsWith(child.path);
-                  if (child.name=="Liste de Mariage"){
-                    return  <DropdownCustom.Item
-                    as={"a"}
-                    className="mobile hidden"
-                    href={child.path}
-                    active={childActive}
-                    target="_blank"
-                    ><Icon name={child.icon + " big"} size="big"/>{child.name}</DropdownCustom.Item>;
-                  }
                   return <DropdownCustom.Item
                   as={Link}
                   className="mobile hidden"
@@ -52,10 +43,20 @@ export const HeaderMenu = ({ items, pathname, Link, inverted, dispatch}: HeaderM
               })}
           </DropdownCustom.Menu></DropdownCustom>;
           }
+          if (item.name=="Liste de Mariage"){
+            return  <Menu.Item
+            as={"a"}
+            className="mobile hidden"
+            href={item.path}
+            active={active}
+            target="_blank"
+            ><Icon name={item.icon + " big"} size="big"/>{item.name}</Menu.Item>;
+          }
           return <Menu.Item
             as={Link}
             className="mobile hidden"
             name={item.name}
+            content={item.name}
             to={item.path}
             key={item.path}
             active={active}

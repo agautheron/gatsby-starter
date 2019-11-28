@@ -12,16 +12,23 @@ import "../css/all.min.css";
 import "prismjs/themes/prism-okaidia.css";
 import { Provider } from "react-redux";
 import { store } from "../store";
-export const subMenuItems = [
+{/* export const subMenuItems = [
   {name: "Cérémonie", path: "/messe/", exact: true, icon: "fas fa-church", inverted: true},
   {name: "Cocktail", path:  "/cocktail/", exact: true, icon: "fas fa-glass-cheers", inverted: true},
   {name: "Liste de Mariage", path:"http://www.millemercismariage.com/arthuretmarie/liste.html", exact:true, icon :"fas fa-gifts",inverted : true}
+];*/}
+export const subItems = [
+  { name: "Que visiter ?", path:  "/interests/", exact: true, icon: "fas fa-university" , inverted: true},
+  {name : "Où se balader ?", path:  "/balades/", exact : true, icon: "far fa-image", inverted: true}
+
 ];
 export const menuItems = [
-  {name: "Le Mariage", path:  "/", exact: false, icon: "fab fa-centos", inverted: true, children: subMenuItems},
-  { name: "Où loger ?", path:  "/logement/", exact: true, icon: "fas fa-home", inverted: true},
-  { name: "Que visiter ?", path:  "/interests/", exact: true, icon: "fas fa-university" , inverted: true},
-  {name : "Où se balader ?", path:  "/balades/", exact : true, icon: "far fa-image", inverted: true},
+ /* {name: "Le Mariage", path:  "/", exact: false, icon: "fab fa-centos", inverted: true, children: subMenuItems}, */
+  {name: "La Cérémonie", path: "/messe/", exact: true, icon: "fas fa-church", inverted: true},
+  {name: "Le Cocktail", path:  "/cocktail/", exact: true, icon: "fas fa-glass-cheers", inverted: true},
+  {name: "Où loger ?", path:  "/logement/", exact: true, icon: "fas fa-home", inverted: true},
+  {name: "Liste de Mariage", path:"http://www.millemercismariage.com/arthuretmarie/liste.html", exact:true, icon :"fas fa-gifts",inverted : true},
+  {name: "Autour du Mariage", path:'/', exact:true, icon : 'fas fa-circle-notch', inverted:true, children:subItems}
 ];
 
 export interface LayoutProps {

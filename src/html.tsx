@@ -31,7 +31,7 @@ export default (props: HtmlProps) => {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
         />
-        <meta charSet="utf-8" />
+        <meta charSet="UTF-8" />
         {head.title.toComponent()}
         {head.meta.toComponent()}
         {head.link.toComponent()}
