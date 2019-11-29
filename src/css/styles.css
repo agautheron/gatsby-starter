@@ -41,7 +41,7 @@
 
 .ui.vertical.stripe {
   padding: 4rem 0;
-  margin-bottom: 10rem;
+  margin-bottom: 10vh;
   background-color: #f2f3f5;
  /* box-shadow: 0 0 20px rgba(0,0,0,.1); */
 }
@@ -266,16 +266,24 @@ iframe.map{
 
 .heroText, .heroText>h3{
   font-family: "Bad Script";
-  font-size: 3rem;
+  font-size: 5vh;
   color: #ffffff;
 }
 .heroText>p{
   font-family: "Bad Script";
-  font-size: 2rem;
+  font-size: 3vh;
   color: #ffffff;
 }
 
 .ui.segment.heroText{
   box-shadow: none;
   border: none;
+}
+
+.ui.segment.inverted.blogTitle{
+  background: none;
+  font-family: "Bad Script";
+  font-size: 5vh;
+  padding-top: 10vh;
+  padding-bottom: 6vh;
 }

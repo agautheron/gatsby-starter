@@ -86,30 +86,29 @@ const IndexPage = (props: LayoutProps) =>
           <Grid.Column>
             <Header icon>
               <Icon name="map pin big"></Icon>
-              Adresse
+              Lieu
             </Header>
             <p>
-              Le cocktail a lieu au Moulin de Bully qui est situé au <a href="https://goo.gl/maps/AGZs2AhsXUiqXQCZ9">29 Route du Pont du Coudray, 14320 Feuguerolles-Bully</a>
+            Venez nous rejoindre pour un cocktail festif au Moulin de Bully <br/><a href="https://goo.gl/maps/AGZs2AhsXUiqXQCZ9">29 Route du Pont du Coudray, 14320 Feuguerolles-Bully</a>
                 </p>
           </Grid.Column>
           <Grid.Column>
             <Header icon>
               <Icon name="clock big"></Icon>
-              Horaires
+              Horaire
             </Header>
-            <p>
-              Le cocktail se tiendra de 17h à 19h30.
-              Vous y êtes chaleureusement conviés pour un temps convivial.
-                </p>
+            <p><br/>
+              Joignez-vous à la fête de 17h à 19h30.
+            </p>
           </Grid.Column>
           <Grid.Column>
             <Header icon>
               <Icon name="car"></Icon>
               Parking
             </Header>
-            <p>
-              Vous pourrez vous garer dans l'enceinte du Moulin de Bully. Merci de respecter les indications de parking qui vous seront données.
-                </p>
+            <p><br/>
+              Vous pourrez vous garer dans l'enceinte du Moulin de Bully.
+            </p>
           </Grid.Column>
         </Grid.Row>
       </Grid>

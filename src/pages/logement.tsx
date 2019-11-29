@@ -118,7 +118,7 @@ const BlogPage = (props: BlogProps) => {
   return ( 
     <Container>
     {/* Title */}
-    <BlogTitle icon={root.icon} title={root.name} header=""/>
+    <BlogTitle icon={root.icon} title={root.name} header="" className="mobile only"/>
     <Segment className="inversed smallPadding heroText">
       <br/>
       <h3>Amis Caennais, si vous avez des lits disponibles à prêter, faites-nous signe !</h3>

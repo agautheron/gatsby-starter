@@ -55,19 +55,19 @@ const IndexPage = (props: LayoutProps) =>
           <Grid.Column>
             <Header icon>
               <Icon name="map pin big"></Icon>
-              Adresse
+              Lieu
             </Header>
             <p>
-              La cérémonie de mariage aura lieu dans l'église Saint-Gilles <a href="https://goo.gl/maps/4iYhDanTvGfTPiPA8">Place de la Reine Mathilde, 14000 Caen</a>
+            Ça se passe à l’abbaye aux Dames ! <br/> <a href="https://goo.gl/maps/4iYhDanTvGfTPiPA8">Place de la Reine Mathilde, 14000 Caen</a>
                 </p>
           </Grid.Column>
           <Grid.Column>
             <Header icon>
               <Icon name="clock big"></Icon>
-              Horaires
+              Horaire
             </Header>
             <p>
-              La cérémonie de mariage aura lieu à 15h30.
+              La messe de mariage aura lieu à 15h00.
                 </p>
           </Grid.Column>
           <Grid.Column>
@@ -83,22 +83,27 @@ const IndexPage = (props: LayoutProps) =>
       </Grid>
     </Segment>
      {/* About this starter */}
-   <Segment vertical className="stripe">
-      <Grid stackable verticalAlign="middle" className="container" textAlign="center">
+    <Segment vertical className="stripe alternate feature">
+    <Grid columns="3" textAlign="center" divided relaxed stackable className="container">
+{/*      <Grid stackable verticalAlign="middle" className="container" textAlign="center"> */}
         <Grid.Row>
-          <Grid.Column width="8">
-            <Header as="h2">Les Chants</Header>
+          <Grid.Column width="8" centered>
+            
+          <Header icon>
+              <Icon name="fab fa-itunes-note"></Icon>Les Chants</Header>
             <p>
-              Vous trouverez l'ensemble des chants de la messe ci-dessous : <br/>
+              Nous serons contents de vous entendre chanter à plein poumons.<br/>
+              Pour vous aider : <br/>
               <iframe height="auto" width="max-content" src="https://www.youtube.com/embed/mYIWiqhTB2g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </p>
             </Grid.Column>
-            <Grid.Column width="8" floated="right">
-            <Header as="h2">Les partitions</Header>
+            <Grid.Column width="8">
+          <Header icon>
+              <Icon name="fas fa-guitar"></Icon>Les Partitions</Header>
             <p>
-            L'ensemble des partitions sont téléchargeables via l'image ci-dessous
+            Si vous souhaitez apprendre différentes voix : 
             <Image
-              src={withPrefix('/icons/partition.png')}
+              src={withPrefix('/icons/partition.jpg')}
               as='a'
               size='medium'
               href='http://google.com'
