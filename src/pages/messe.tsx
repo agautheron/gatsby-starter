@@ -45,6 +45,8 @@ const IndexPage = (props: LayoutProps) =>
 	 {/*	<h2>Something about what we offer</h2>
 		<button>Click me!</button>*/}
 	</HeroImage>
+    <Segment className="vertical arrow bounce heroArrow">
+      </Segment>
 	</Segment>
    
 

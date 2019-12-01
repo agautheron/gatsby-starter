@@ -7,7 +7,7 @@ updatedDate: "2019-11-08"
 author: Fabien BERNARD
 tags:
   - chambre
-  -  gite
+  - gîte
 image: RelaisCerisiers_ensemble.jpg
 draft: false
 ---

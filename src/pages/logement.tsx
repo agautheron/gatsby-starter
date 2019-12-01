@@ -123,7 +123,7 @@ const BlogPage = (props: BlogProps) => {
       <br/>
       <h3>Amis Caennais, si vous avez des lits disponibles à prêter, faites-nous signe !</h3>
       <br/>
-      <p>En attendant, vous trouverez ci-dessous quelques lieux à proximité du lieu du mariage. </p>
+      <p>En attendant, voici quelques propositions de logement à proximité du lieu du mariage. </p>
       <br/>
       
       </Segment>

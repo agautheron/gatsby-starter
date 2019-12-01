@@ -6,7 +6,7 @@ createdDate: "2019-10-28"
 updatedDate: "2019-10-28"
 author: Fabien BERNARD
 tags:
-  - hotel
+  - hôtel
 image: 3508_ho_00_p_1024x768.jpg
 draft: false
 ---

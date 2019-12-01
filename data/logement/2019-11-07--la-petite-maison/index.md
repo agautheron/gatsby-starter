@@ -7,7 +7,7 @@ updatedDate: "2019-11-07"
 author: Fabien BERNARD
 tags:
   - chambre
-  -  gite
+  - gîte
 image: laPetiteMaison.jpg
 draft: false
 ---

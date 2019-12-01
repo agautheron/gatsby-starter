@@ -1,12 +1,12 @@
 ---
-title: Hotel B&B Caen Sud
+title: Hôtel B&B Caen Sud
 header: 5 Rue de la Dronnière, 14123 Ifs
 category: logement
 createdDate: "2019-10-28"
 updatedDate: "2019-10-28"
 author: Fabien BERNARD
 tags:
-  - hotel
+  - hôtel
 image: Caen-Sud-Chambre-Double-Twin.jpg
 draft: false
 ---

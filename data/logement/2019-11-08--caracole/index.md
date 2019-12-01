@@ -7,7 +7,7 @@ updatedDate: "2019-11-08"
 author: Fabien BERNARD
 tags:
   - chambre
-  - gite
+  - gîte
 image: caracole-ete-2018-1-1.jpg
 draft: false
 ---

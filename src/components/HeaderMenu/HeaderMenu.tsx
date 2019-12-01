@@ -43,7 +43,7 @@ export const HeaderMenu = ({ items, pathname, Link, inverted, dispatch}: HeaderM
               })}
           </DropdownCustom.Menu></DropdownCustom>;
           }
-          if (item.name=="Liste de Mariage"){
+          if (item.name=="Liste de Mariage"){ {/* || item.name=="Comment venir ?"){ */}
             return  <Menu.Item
             as={"a"}
             className="mobile hidden"

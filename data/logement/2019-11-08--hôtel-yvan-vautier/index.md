@@ -6,7 +6,7 @@ createdDate: "2019-11-08"
 updatedDate: "2019-11-08"
 author: Fabien BERNARD
 tags:
-  - hotel
+  - hôtel
 image: 38199387.jpg
 draft: false
 ---

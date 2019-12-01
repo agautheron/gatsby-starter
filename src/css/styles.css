@@ -1,3 +1,6 @@
+
+/* @import "compass/css3"; */
+
 .hidden.menu {
   display: none;
 }
@@ -197,13 +200,15 @@ e
   .ui.segment.firstSegment{
     /* height: -webkit-fill-available;
       min-height: 57rem;*/
-      height: 94vh;
+      height: 87vh;
    /*   padding: 20vh 18vw; */
       text-align: center;
+      box-shadow:none;
+      border:none;
     }
       
   .ui.segment.ui.segment.firstSegment > h1{
-    font-family: "Bad Script";
+    font-family: "Custom Apple Chancery Regular";
     font-size: 6rem;
     margin: auto!important;
     width: 70vw;
@@ -211,7 +216,7 @@ e
     padding-top: 19vh;
   }
   .ui.segment.ui.segment.firstSegment > h1 > h2.sub.header{
-    font-family: "Bad Script";
+    font-family: "Custom Apple Chancery Regular";
     font-size: 3rem;
   }
 }
@@ -221,12 +226,14 @@ e
   /* height: -webkit-fill-available;
     min-height: 57rem;
     padding: 25vw 19vh;*/
-    height: 94vh;
+    height: 87vh;
     text-align: center;
+    box-shadow:none;
+    border:none;
   }
     
   .ui.segment.ui.segment.firstSegment > h1{
-    font-family: "Bad Script";
+    font-family: "Custom Apple Chancery Regular";
     font-size: 8rem;
     margin: auto!important;
     width: 50vw;
@@ -234,7 +241,7 @@ e
     padding-top: 19vh;
   }
   .ui.segment.ui.segment.firstSegment > h1 > h2.sub.header{
-    font-family: "Bad Script";
+    font-family: "Custom Apple Chancery Regular";
     font-size: 3rem;
   }
 }
@@ -260,17 +267,17 @@ iframe.map{
 }
 
 .heroImage > div > div > h1{
-  font-family: "Bad Script";
+  font-family: "Custom Apple Chancery Regular";
   font-size: 3rem;
 }
 
 .heroText, .heroText>h3{
-  font-family: "Bad Script";
+  font-family: "Custom Apple Chancery Regular";
   font-size: 5vh;
   color: #ffffff;
 }
 .heroText>p{
-  font-family: "Bad Script";
+  font-family: "Custom Apple Chancery Regular";
   font-size: 3vh;
   color: #ffffff;
 }
@@ -282,8 +289,101 @@ iframe.map{
 
 .ui.segment.inverted.blogTitle{
   background: none;
-  font-family: "Bad Script";
+  font-family: "Custom Apple Chancery Regular";
   font-size: 5vh;
   padding-top: 10vh;
   padding-bottom: 6vh;
+}
+
+.centered.row.osezCouleur > h1{
+  background: url("bg.png");
+  font-family: 'Custom Apple Chancery Regular';
+  font-size: 10vh;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  text-fill-color: transparent; /* not yet supported */
+  background-clip: text; /* not yet supported */
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -moz-text-fill-color: transparent; /* not yet supported */
+  -moz-background-clip: text;
+}
+.centered.row.getMarried > h1{
+  color:#000;
+  font-family: 'Custom Apple Chancery Regular';
+  font-size:10vh;
+  -webkit-text-fill-color: ;
+}
+.color1, .color10{
+  color:#db3c29;
+}
+
+.color2, .color15{
+  color:#834eed;
+}
+
+.color3, .color9{
+  color:#d3ab2b;
+}
+
+.color4, .color16{
+  color:#59adaf;
+}
+
+.color5, .color13{
+  color:#da8128;
+}
+
+.color6, .color11{
+  color:#a9c41f;
+}
+.color7, .color14{
+  color:#d9ca27;
+}
+.color8, .color12{
+  color:#e47f74;
+}
+
+
+@keyframes bounce{
+  from {top: 106px;}
+  to   {top: 86px;}
+}
+body {
+  background: black;
+}
+
+.ui.segment.arrow.vertical {
+ /*  position: fixed;
+ bottom: 0; */
+  left: 50%;
+  margin-left:-20px;
+  width: 40px;
+  height: 40px;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
+  background-size: contain;
+  box-shadow:none;
+  border:none;
+}
+
+.bounce {
+  animation : bounce 2s infinite;
+}
+
+.ui.segment.arrow.vertical.heroArrow{
+  left: 50%;
+  margin-left:-20px;
+  width: 40px;
+  height: 40px;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
+  background-size: contain;
+  box-shadow:none;
+  border:none;
+  margin-top:-7vh;
+}
+
+.iFrameCovoit{
+  border:none;
+  width:412px;
+  height:172px;
 }
