@@ -26,8 +26,8 @@ export const menuItems = [
  /* {name: "Le Mariage", path:  "/", exact: false, icon: "fab fa-centos", inverted: true, children: subMenuItems}, */
   {name: "La Cérémonie", path: "/messe/", exact: true, icon: "fas fa-church", inverted: true},
   {name: "Le Cocktail", path:  "/cocktail/", exact: true, icon: "fas fa-glass-cheers", inverted: true},
-  {name: "Où loger ?", path:  "/logement/", exact: true, icon: "fas fa-home", inverted: true},
   {name: "Comment venir ?", path:"/transport/", exact:true, icon :"car",inverted : true},
+  {name: "Où loger ?", path:  "/logement/", exact: true, icon: "fas fa-home", inverted: true},
   {name: "Liste de Mariage", path:"http://www.millemercismariage.com/arthuretmarie/liste.html", exact:true, icon :"fas fa-gifts",inverted : true},
   {name: "Autour du Mariage", path:'/', exact:true, icon : 'fas fa-circle-notch', inverted:true, children:subItems}
 ];
